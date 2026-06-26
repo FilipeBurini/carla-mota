@@ -118,10 +118,13 @@
       </div>
 
       <!-- Hamburger Menu (Mobile) -->
-      <button id="menu-btn" class="md:hidden flex flex-col justify-between w-5 h-3.5 group cursor-pointer focus:outline-none" aria-label="Abrir Menu">
-        <span class="w-full h-0.5 bg-zinc-850 transition-all duration-300 origin-left"></span>
-        <span class="w-full h-0.5 bg-zinc-850 transition-all duration-300"></span>
-        <span class="w-full h-0.5 bg-zinc-850 transition-all duration-300 origin-left"></span>
+      <button id="menu-btn" class="md:hidden flex items-center gap-2 px-3.5 py-1.5 bg-zinc-900 text-white rounded-full transition-all duration-300 active:scale-95 cursor-pointer focus:outline-none" aria-label="Abrir Menu">
+        <span class="text-[10px] font-semibold uppercase tracking-wider select-none">Menu</span>
+        <div class="flex flex-col justify-between w-3.5 h-2.5 hamburger-lines">
+          <span class="w-full h-[1.5px] bg-white transition-all duration-300 origin-left"></span>
+          <span class="w-full h-[1.5px] bg-white transition-all duration-300"></span>
+          <span class="w-full h-[1.5px] bg-white transition-all duration-300 origin-left"></span>
+        </div>
       </button>
     </div>
 
@@ -776,33 +779,42 @@
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuLinks = document.querySelectorAll('.mobile-link');
-    const spans = menuBtn.querySelectorAll('span');
+    
+    if (menuBtn && mobileMenu) {
+      const spans = menuBtn.querySelectorAll('.hamburger-lines span');
 
-    menuBtn.addEventListener('click', () => {
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      if (isOpen) {
-        // Close menu
-        mobileMenu.classList.add('hidden');
-        spans[0].classList.remove('rotate-45', 'translate-y-[5px]');
-        spans[1].classList.remove('opacity-0');
-        spans[2].classList.remove('-rotate-45', '-translate-y-[5px]');
-      } else {
-        // Open menu
-        mobileMenu.classList.remove('hidden');
-        spans[0].classList.add('rotate-45', 'translate-y-[5px]');
-        spans[1].classList.add('opacity-0');
-        spans[2].classList.add('-rotate-45', '-translate-y-[5px]');
-      }
-    });
-
-    menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        spans[0].classList.remove('rotate-45', 'translate-y-[5px]');
-        spans[1].classList.remove('opacity-0');
-        spans[2].classList.remove('-rotate-45', '-translate-y-[5px]');
+      menuBtn.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        if (isOpen) {
+          // Close menu
+          mobileMenu.classList.add('hidden');
+          if (spans.length >= 3) {
+            spans[0].classList.remove('rotate-45', 'translate-y-[3.5px]');
+            spans[1].classList.remove('opacity-0');
+            spans[2].classList.remove('-rotate-45', '-translate-y-[3.5px]');
+          }
+        } else {
+          // Open menu
+          mobileMenu.classList.remove('hidden');
+          if (spans.length >= 3) {
+            spans[0].classList.add('rotate-45', 'translate-y-[3.5px]');
+            spans[1].classList.add('opacity-0');
+            spans[2].classList.add('-rotate-45', '-translate-y-[3.5px]');
+          }
+        }
       });
-    });
+
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          if (spans.length >= 3) {
+            spans[0].classList.remove('rotate-45', 'translate-y-[3.5px]');
+            spans[1].classList.remove('opacity-0');
+            spans[2].classList.remove('-rotate-45', '-translate-y-[3.5px]');
+          }
+        });
+      });
+    }
 
     // Form Submission & WhatsApp Redirect Simulation
     const contactForm = document.getElementById('contact-form');

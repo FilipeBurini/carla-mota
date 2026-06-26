@@ -119,10 +119,13 @@
       </div>
 
       <!-- Hamburger Menu (Mobile) -->
-      <button id="menu-btn" class="md:hidden flex flex-col justify-between w-5 h-3.5 group cursor-pointer focus:outline-none" aria-label="Abrir Menu">
-        <span class="w-full h-0.5 bg-zinc-800 transition-all duration-300 origin-left"></span>
-        <span class="w-full h-0.5 bg-zinc-800 transition-all duration-300"></span>
-        <span class="w-full h-0.5 bg-zinc-800 transition-all duration-300 origin-left"></span>
+      <button id="menu-btn" class="md:hidden flex items-center gap-2 px-3.5 py-1.5 bg-zinc-900 text-white rounded-full transition-all duration-300 active:scale-95 cursor-pointer focus:outline-none" aria-label="Abrir Menu">
+        <span class="text-[10px] font-semibold uppercase tracking-wider select-none">Menu</span>
+        <div class="flex flex-col justify-between w-3.5 h-2.5 hamburger-lines">
+          <span class="w-full h-[1.5px] bg-white transition-all duration-300 origin-left"></span>
+          <span class="w-full h-[1.5px] bg-white transition-all duration-300"></span>
+          <span class="w-full h-[1.5px] bg-white transition-all duration-300 origin-left"></span>
+        </div>
       </button>
     </div>
 
@@ -982,8 +985,8 @@
 
     // Timeline steps scroll reveal animation
     gsap.utils.toArray('.timeline-step').forEach((step) => {
-      const leftIndicator = step.querySelector('.lg:sticky');
-      const rightCard = step.querySelector('.lg:col-span-9');
+      const leftIndicator = step.querySelector('.lg\\:sticky');
+      const rightCard = step.querySelector('.lg\\:col-span-9');
       
       if (leftIndicator && rightCard) {
         gsap.from(leftIndicator, {
@@ -1039,24 +1042,29 @@
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
     if (menuBtn && mobileMenu) {
+      const spans = menuBtn.querySelectorAll('.hamburger-lines span');
+
       menuBtn.addEventListener('click', () => {
-        const spans = menuBtn.querySelectorAll('span');
         mobileMenu.classList.toggle('hidden');
         document.body.classList.toggle('overflow-hidden');
         
         if (!mobileMenu.classList.contains('hidden')) {
-          spans[0].classList.add('rotate-45', 'translate-y-[5px]');
-          spans[1].classList.add('opacity-0');
-          spans[2].classList.add('-rotate-45', '-translate-y-[5px]');
+          if (spans.length >= 3) {
+            spans[0].classList.add('rotate-45', 'translate-y-[3.5px]');
+            spans[1].classList.add('opacity-0');
+            spans[2].classList.add('-rotate-45', '-translate-y-[3.5px]');
+          }
           
           gsap.fromTo('.mobile-link', 
-            { opacity: 0, y: 20 }, 
-            { opacity: 1, y: 0, stagger: 0.08, ease: 'power3.out', duration: 0.5 }
+            { opacity: 0, y: 15 }, 
+            { opacity: 1, y: 0, stagger: 0.08, ease: 'power3.out', duration: 0.4 }
           );
         } else {
-          spans[0].classList.remove('rotate-45', 'translate-y-[5px]');
-          spans[1].classList.remove('opacity-0');
-          spans[2].classList.remove('-rotate-45', '-translate-y-[5px]');
+          if (spans.length >= 3) {
+            spans[0].classList.remove('rotate-45', 'translate-y-[3.5px]');
+            spans[1].classList.remove('opacity-0');
+            spans[2].classList.remove('-rotate-45', '-translate-y-[3.5px]');
+          }
         }
       });
 
@@ -1064,10 +1072,11 @@
         link.addEventListener('click', () => {
           mobileMenu.classList.add('hidden');
           document.body.classList.remove('overflow-hidden');
-          const spans = menuBtn.querySelectorAll('span');
-          spans[0].classList.remove('rotate-45', 'translate-y-[5px]');
-          spans[1].classList.remove('opacity-0');
-          spans[2].classList.remove('-rotate-45', '-translate-y-[5px]');
+          if (spans.length >= 3) {
+            spans[0].classList.remove('rotate-45', 'translate-y-[3.5px]');
+            spans[1].classList.remove('opacity-0');
+            spans[2].classList.remove('-rotate-45', '-translate-y-[3.5px]');
+          }
         });
       });
     }
