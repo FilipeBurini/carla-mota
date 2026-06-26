@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio — Carla Mota</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Explore o portfólio de criativos e produções de vídeo de Carla Mota. Veja exemplos reais de UGC, branded content e filmmaking local criados para conversão.">
+  <meta property="og:title" content="Portfólio de Vídeos com Intenção de Conversão — Carla Mota">
+  <meta property="og:description" content="Filmes e criativos estratégicos que retêm atenção e geram resultados. Veja os cases e solicite uma proposta.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              950: '#050505',
+              900: '#0a0a0a',
+              800: '#0f0f0f',
+              700: '#141414',
+              600: '#1d1d1f',
+            },
+            accent: '#ea580c', // Vibrant Orange
+          },
+          fontFamily: {
+            display: ['Cormorant Garamond', 'serif'],
+            serif: ['Cormorant Garamond', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Phosphor Icons Light -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAFAFA;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #E5E7EB;
+      border-radius: 99px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ea580c;
+    }
+
+    /* Custom styles for glowing backgrounds */
+    .radial-glow {
+      background: radial-gradient(circle at 50% 50%, rgba(234, 88, 12, 0.04) 0%, rgba(250, 250, 250, 0) 70%);
+    }
+
+    .clip-text-reveal {
+      clip-path: polygon(0 -30px, 100% -30px, 100% 130%, 0 130%);
+    }
+
+    /* Phone Mockup Styling */
+    .phone-frame {
+      box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25), 
+                  inset 0px 2px 2px rgba(255, 255, 255, 0.2), 
+                  inset 0px -2px 2px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-[#FAFAFA] text-zinc-800 font-sans selection:bg-orange-500 selection:text-white antialiased overflow-x-hidden relative">
+
+  <!-- Header: Floating Island -->
+  <header class="fixed top-0 left-0 right-0 z-50 flex justify-center p-4">
+    <div class="flex items-center justify-between w-full max-w-5xl px-6 py-3 bg-[#F5F5F5]/70 backdrop-blur-md border border-zinc-200/80 rounded-full shadow-lg transition-all duration-500 hover:border-zinc-300/80">
+      <!-- Logo -->
+      <a href="index.html" class="font-serif text-xl font-semibold tracking-[0.05em] text-zinc-900 flex items-center gap-2">
+        CARLA MOTA<span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+      </a>
+      
+      <!-- Nav Links -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="text-[11px] font-medium uppercase tracking-widest text-zinc-600 hover:text-zinc-900 transition-colors duration-300">Home</a>
+        <a href="#portfolio-grid" class="text-[11px] font-semibold uppercase tracking-widest text-orange-650 hover:text-orange-700 transition-colors duration-300">Portfólio</a>
+        <a href="metodo.html" class="text-[11px] font-medium uppercase tracking-widest text-zinc-600 hover:text-zinc-900 transition-colors duration-300">Método CICLO</a>
+      </nav>
+      
+      <!-- CTA Button -->
+      <div class="hidden md:block">
+        <a href="#contato" class="group relative inline-flex items-center gap-3 px-5 py-2 text-[11px] font-semibold uppercase tracking-wider text-white bg-zinc-900 rounded-full transition-all duration-500 hover:bg-zinc-800 active:scale-[0.98]">
+          Orçamento
+          <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
+            <i class="ph-light ph-arrow-up-right text-xs"></i>
+          </span>
+        </a>
+      </div>
+
+      <!-- Hamburger Menu (Mobile) -->
+      <button id="menu-btn" class="md:hidden flex flex-col justify-between w-5 h-3.5 group cursor-pointer focus:outline-none" aria-label="Abrir Menu">
+        <span class="w-full h-0.5 bg-zinc-850 transition-all duration-300 origin-left"></span>
+        <span class="w-full h-0.5 bg-zinc-850 transition-all duration-300"></span>
+        <span class="w-full h-0.5 bg-zinc-850 transition-all duration-300 origin-left"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Fullscreen Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 hidden flex-col items-center justify-center bg-[#FAFAFA]/98 backdrop-blur-3xl">
+      <nav class="flex flex-col items-center gap-8 text-center">
+        <a href="index.html" class="mobile-link text-2xl font-display font-bold text-zinc-600 hover:text-zinc-900 transition-colors">Home</a>
+        <a href="#portfolio-grid" class="mobile-link text-2xl font-display font-bold text-orange-650 hover:text-orange-700 transition-colors">Portfólio</a>
+        <a href="metodo.html" class="mobile-link text-2xl font-display font-bold text-zinc-600 hover:text-zinc-900 transition-colors">Método CICLO</a>
+        <a href="#contato" class="mobile-link group relative inline-flex items-center gap-3 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white bg-zinc-900 rounded-full mt-4">
+          Solicitar Orçamento
+          <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
+            <i class="ph-light ph-arrow-up-right text-xs"></i>
+          </span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section (Dark & Cinematic) -->
+  <section id="hero" class="relative min-h-[85dvh] flex items-center justify-center pt-24 pb-12 overflow-hidden bg-[#050505] text-white px-4">
+    <!-- Ambient Light Layer -->
+    <div class="absolute inset-0 radial-glow opacity-30 pointer-events-none"></div>
+    <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FAFAFA] to-transparent opacity-10 pointer-events-none"></div>
+
+    <div class="w-full max-w-5xl mx-auto text-center relative z-10 py-16">
+      <!-- Eyebrow Badge -->
+      <span class="hero-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900/80 border border-zinc-800 text-[10px] uppercase tracking-[0.2em] font-medium text-orange-500 mb-6 mx-auto">
+        <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+        Portfólio Oficial
+      </span>
+      
+      <!-- Headline -->
+      <h1 class="font-sans text-4xl md:text-7xl font-extrabold tracking-[-0.03em] leading-[1.1] text-white mb-6 max-w-4xl mx-auto">
+        <span class="block clip-text-reveal"><span class="hero-title-line inline-block pt-2 pb-2">Narrativas visuais com</span></span>
+        <span class="block clip-text-reveal"><span class="hero-title-line inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 pt-2 pb-2 font-black">intenção real de vendas.</span></span>
+      </h1>
+      
+      <!-- Subhead -->
+      <p class="hero-sub text-zinc-400 text-sm md:text-base leading-relaxed max-w-[50ch] mb-8 font-light mx-auto">
+        Criativos de alta conversão, branded content e filmmaking direcionados para prender a atenção do público certo e convertê-los em clientes.
+      </p>
+      
+      <!-- Stats / Icons Band -->
+      <div class="hero-stats flex flex-wrap justify-center items-center gap-8 md:gap-12 mt-12 text-zinc-400 text-xs tracking-wider uppercase font-mono">
+        <div class="flex items-center gap-2">
+          <i class="ph-light ph-film-slate text-orange-500 text-lg"></i>
+          <span>Filmmaking Local</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="ph-light ph-user-focus text-orange-500 text-lg"></i>
+          <span>UGC Creator</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="ph-light ph-target text-orange-500 text-lg"></i>
+          <span>Foco em Conversão</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Portfolio Gallery -->
+  <section id="portfolio-grid" class="py-24 px-4 relative reveal-section">
+    <div class="w-full max-w-6xl mx-auto">
+      
+      <!-- Section Title -->
+      <div class="mb-16 text-center max-w-xl mx-auto">
+        <h2 class="font-serif text-3xl md:text-5xl font-semibold tracking-normal text-zinc-900 leading-[1.2]">
+          Filmes com Intenção
+        </h2>
+        <p class="text-zinc-650 font-light mt-4 text-sm leading-relaxed">
+          Assista aos vídeos reais criados e produzidos sob medida para marcas e profissionais liberais.
+        </p>
+      </div>
+
+      <!-- Main Gallery Grid (3 Columns of Mobile Viewports) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 items-start">
+        
+        <!-- Video 1: Ser Mulher (Manifesto) -->
+        <div class="portfolio-item flex flex-col gap-6">
+          <!-- Smartphone Container -->
+          <div class="phone-frame w-full max-w-[340px] aspect-[9/16] bg-zinc-950 border-[10px] border-zinc-900 rounded-[3rem] overflow-hidden relative mx-auto group shadow-2xl">
+            <!-- Simulated Camera Grid Overlay -->
+            <div class="absolute inset-0 pointer-events-none z-20 transition-opacity duration-500 group-hover:opacity-20 opacity-40">
+              <div class="absolute top-4 bottom-4 left-[33.3%] w-[0.5px] bg-white/30"></div>
+              <div class="absolute top-4 bottom-4 left-[66.6%] w-[0.5px] bg-white/30"></div>
+              <div class="absolute left-4 right-4 top-[33.3%] h-[0.5px] bg-white/30"></div>
+              <div class="absolute left-4 right-4 top-[66.6%] h-[0.5px] bg-white/30"></div>
+            </div>
+            
+            <!-- Video Element -->
+            <video class="w-full h-full object-cover relative z-10" playsinline preload="metadata" loop src="./Portifolio/Ser mulher é abraçar todas as suas versões. 🌹Este vídeo não é apenas sobre estética, é sobre vi.mp4#t=0.1"></video>
+            
+            <!-- Dynamic Island/Notch simulated -->
+            <div class="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-30 pointer-events-none"></div>
+
+            <!-- Custom Play/Pause Overlay -->
+            <div class="absolute inset-0 bg-black/40 z-20 flex flex-col justify-between p-6 transition-all duration-300 group-hover:bg-black/35 cursor-pointer play-overlay">
+              <div class="flex justify-between items-center text-[10px] font-mono tracking-widest text-white/80">
+                <span>MANIFESTO</span>
+                <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span> REC</span>
+              </div>
+              
+              <div class="w-14 h-14 rounded-full bg-white/95 text-zinc-900 flex items-center justify-center mx-auto shadow-lg transform transition-all duration-300 hover:scale-110 active:scale-95 play-btn">
+                <i class="ph-fill ph-play text-xl ml-1 text-zinc-900"></i>
+              </div>
+
+              <div class="text-left text-white">
+                <h4 class="font-serif text-lg font-medium leading-tight">Manifesto Feminino</h4>
+                <p class="text-[9px] font-mono text-zinc-300 mt-1 uppercase tracking-wider">Branding & Posicionamento</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Strategy & Details Card -->
+          <div class="bg-white border border-zinc-200/80 rounded-3xl p-6 shadow-sm flex-grow">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2.5 py-0.5 rounded-full bg-orange-50 border border-orange-100 text-[10px] font-semibold text-orange-650 uppercase font-mono">UGC & Brand</span>
+            </div>
+            <h3 class="font-serif text-xl font-semibold text-zinc-900 leading-snug">"Ser Mulher é abraçar todas as suas versões"</h3>
+            <p class="text-zinc-650 text-xs font-light leading-relaxed mt-3">
+              Vídeo de posicionamento de marca que conecta os valores do autocuidado e beleza à diversidade feminina.
+            </p>
+            <div class="mt-4 pt-4 border-t border-zinc-100 space-y-2 text-xs">
+              <p class="text-zinc-500"><strong class="text-zinc-800 font-semibold font-mono text-[10px] uppercase block mb-0.5">Objetivo Estratégico</strong> Elevar o valor percebido dos procedimentos estéticos e conectar emocionalmente com a persona de alto padrão.</p>
+              <p class="text-zinc-500"><strong class="text-zinc-800 font-semibold font-mono text-[10px] uppercase block mb-0.5">Ângulo Criativo</strong> Storytelling sensível com roteiro autoral de impacto, quebrando a frieza técnica comum do setor estético.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video 2: Implante Dental (Dor & Solução) -->
+        <div class="portfolio-item flex flex-col gap-6">
+          <!-- Smartphone Container -->
+          <div class="phone-frame w-full max-w-[340px] aspect-[9/16] bg-zinc-950 border-[10px] border-zinc-900 rounded-[3rem] overflow-hidden relative mx-auto group shadow-2xl">
+            <!-- Simulated Camera Grid Overlay -->
+            <div class="absolute inset-0 pointer-events-none z-20 transition-opacity duration-500 group-hover:opacity-20 opacity-40">
+              <div class="absolute top-4 bottom-4 left-[33.3%] w-[0.5px] bg-white/30"></div>
+              <div class="absolute top-4 bottom-4 left-[66.6%] w-[0.5px] bg-white/30"></div>
+              <div class="absolute left-4 right-4 top-[33.3%] h-[0.5px] bg-white/30"></div>
+              <div class="absolute left-4 right-4 top-[66.6%] h-[0.5px] bg-white/30"></div>
+            </div>
+            
+            <!-- Video Element -->
+            <video class="w-full h-full object-cover relative z-10" playsinline preload="metadata" loop src="./Portifolio/Saudades de morder uma maçã sem medo 🍎O protocolo fixo devolve a sua liberdade e segurança ao m.mp4#t=0.1"></video>
+            
+            <!-- Dynamic Island/Notch simulated -->
+            <div class="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-30 pointer-events-none"></div>
+
+            <!-- Custom Play/Pause Overlay -->
+            <div class="absolute inset-0 bg-black/40 z-20 flex flex-col justify-between p-6 transition-all duration-300 group-hover:bg-black/35 cursor-pointer play-overlay">
+              <div class="flex justify-between items-center text-[10px] font-mono tracking-widest text-white/80">
+                <span>CONVERSÃO</span>
+                <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span> REC</span>
+              </div>
+              
+              <div class="w-14 h-14 rounded-full bg-white/95 text-zinc-900 flex items-center justify-center mx-auto shadow-lg transform transition-all duration-300 hover:scale-110 active:scale-95 play-btn">
+                <i class="ph-fill ph-play text-xl ml-1 text-zinc-900"></i>
+              </div>
+
+              <div class="text-left text-white">
+                <h4 class="font-serif text-lg font-medium leading-tight">A Liberdade de Sorrir</h4>
+                <p class="text-[9px] font-mono text-zinc-300 mt-1 uppercase tracking-wider">Funil de Vendas / Prova Social</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Strategy & Details Card -->
+          <div class="bg-white border border-zinc-200/80 rounded-3xl p-6 shadow-sm flex-grow">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2.5 py-0.5 rounded-full bg-orange-50 border border-orange-100 text-[10px] font-semibold text-orange-650 uppercase font-mono">Clínico / Conversão</span>
+            </div>
+            <h3 class="font-serif text-xl font-semibold text-zinc-900 leading-snug">"Saudades de morder uma maçã sem medo 🍎"</h3>
+            <p class="text-zinc-650 text-xs font-light leading-relaxed mt-3">
+              Criativo de alta performance com lógica de tráfego pago focado no tratamento de Protocolo Fixo odontológico.
+            </p>
+            <div class="mt-4 pt-4 border-t border-zinc-100 space-y-2 text-xs">
+              <p class="text-zinc-500"><strong class="text-zinc-800 font-semibold font-mono text-[10px] uppercase block mb-0.5">Objetivo Estratégico</strong> Quebrar a principal barreira emocional e de custo do paciente, demonstrando a recuperação da liberdade de se alimentar.</p>
+              <p class="text-zinc-500"><strong class="text-zinc-800 font-semibold font-mono text-[10px] uppercase block mb-0.5">Ângulo Criativo</strong> Foco na dor física/emocional (dificuldade de mastigação) e na recompensa imediata (morder uma maçã).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video 3: Paulínia Cresceu (Storytelling) -->
+        <div class="portfolio-item flex flex-col gap-6">
+          <!-- Smartphone Container -->
+          <div class="phone-frame w-full max-w-[340px] aspect-[9/16] bg-zinc-950 border-[10px] border-zinc-900 rounded-[3rem] overflow-hidden relative mx-auto group shadow-2xl">
+            <!-- Simulated Camera Grid Overlay -->
+            <div class="absolute inset-0 pointer-events-none z-20 transition-opacity duration-500 group-hover:opacity-20 opacity-40">
+              <div class="absolute top-4 bottom-4 left-[33.3%] w-[0.5px] bg-white/30"></div>
+              <div class="absolute top-4 bottom-4 left-[66.6%] w-[0.5px] bg-white/30"></div>
+              <div class="absolute left-4 right-4 top-[33.3%] h-[0.5px] bg-white/30"></div>
+              <div class="absolute left-4 right-4 top-[66.6%] h-[0.5px] bg-white/30"></div>
+            </div>
+            
+            <!-- Video Element -->
+            <video class="w-full h-full object-cover relative z-10" playsinline preload="metadata" loop src="./Portifolio/Paulínia cresceu e o nosso cuidado com você acompanhou esse ritmo. ✨Nossa cidade é feita de hist.mp4#t=0.1"></video>
+            
+            <!-- Dynamic Island/Notch simulated -->
+            <div class="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-30 pointer-events-none"></div>
+
+            <!-- Custom Play/Pause Overlay -->
+            <div class="absolute inset-0 bg-black/40 z-20 flex flex-col justify-between p-6 transition-all duration-300 group-hover:bg-black/35 cursor-pointer play-overlay">
+              <div class="flex justify-between items-center text-[10px] font-mono tracking-widest text-white/80">
+                <span>STORYTELLING</span>
+                <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span> REC</span>
+              </div>
+              
+              <div class="w-14 h-14 rounded-full bg-white/95 text-zinc-900 flex items-center justify-center mx-auto shadow-lg transform transition-all duration-300 hover:scale-110 active:scale-95 play-btn">
+                <i class="ph-fill ph-play text-xl ml-1 text-zinc-900"></i>
+              </div>
+
+              <div class="text-left text-white">
+                <h4 class="font-serif text-lg font-medium leading-tight">Paulínia Cresceu</h4>
+                <p class="text-[9px] font-mono text-zinc-300 mt-1 uppercase tracking-wider">Local Filmmaker / Humanização</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Strategy & Details Card -->
+          <div class="bg-white border border-zinc-200/80 rounded-3xl p-6 shadow-sm flex-grow">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2.5 py-0.5 rounded-full bg-orange-50 border border-orange-100 text-[10px] font-semibold text-orange-650 uppercase font-mono">Local / Branded</span>
+            </div>
+            <h3 class="font-serif text-xl font-semibold text-zinc-900 leading-snug">"Paulínia cresceu e o nosso cuidado acompanhou"</h3>
+            <p class="text-zinc-650 text-xs font-light leading-relaxed mt-3">
+              Vídeo institucional desenvolvido para demonstrar o crescimento de um negócio local junto com a comunidade.
+            </p>
+            <div class="mt-4 pt-4 border-t border-zinc-100 space-y-2 text-xs">
+              <p class="text-zinc-500"><strong class="text-zinc-800 font-semibold font-mono text-[10px] uppercase block mb-0.5">Objetivo Estratégico</strong> Fortalecer o branding regional e a autoridade da clínica de saúde através do sentimento de orgulho da comunidade local.</p>
+              <p class="text-zinc-500"><strong class="text-zinc-800 font-semibold font-mono text-[10px] uppercase block mb-0.5">Ângulo Criativo</strong> Apresentação histórica e emocional do município e a evolução dos cuidados e da infraestrutura da marca local.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Frentes de Atuação com Grid Assimétrico -->
+  <section class="py-32 px-4 relative border-t border-zinc-200/80 bg-[#F5F5F5]/60 reveal-section">
+    <div class="w-full max-w-6xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="mb-20 text-center max-w-xl mx-auto">
+        <span class="text-[10px] font-mono tracking-widest text-orange-600 uppercase font-semibold">Como criamos</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-semibold tracking-normal text-zinc-900 leading-[1.2] mt-3">
+          Categorias de Produção
+        </h2>
+        <p class="text-zinc-650 font-light mt-4 text-sm leading-relaxed">
+          Cada projeto de portfólio responde a uma frente estratégica diferente, alinhada com as necessidades do cliente.
+        </p>
+      </div>
+
+      <!-- Assimetric Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        
+        <!-- UGC Card -->
+        <div class="col-span-12 md:col-span-4 p-1.5 bg-[#FAFAFA] border border-zinc-200/80 rounded-[2.5rem] shadow-sm flex flex-col justify-between overflow-hidden">
+          <div class="aspect-[4/3] w-full overflow-hidden rounded-[2rem] bg-zinc-150 border-b border-zinc-200">
+            <img src="./assets/ugc_creator.png" alt="UGC Creator" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-mono tracking-widest text-orange-650 uppercase font-semibold">01 / Conexão Orgânica</span>
+              <h3 class="font-serif text-2xl font-semibold text-zinc-900 leading-snug mt-2">UGC Creator</h3>
+              <p class="text-zinc-650 text-xs font-light leading-relaxed mt-3">
+                Vídeos nativos de redes sociais que não parecem anúncios, focados em testar ganchos dinâmicos para tráfego pago de e-commerce e beleza.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branded Content Card -->
+        <div class="col-span-12 md:col-span-4 p-1.5 bg-[#FAFAFA] border border-zinc-200/80 rounded-[2.5rem] shadow-sm flex flex-col justify-between overflow-hidden">
+          <div class="aspect-[4/3] w-full overflow-hidden rounded-[2rem] bg-zinc-150 border-b border-zinc-200">
+            <img src="./assets/brand_content.png" alt="Branded Content" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-mono tracking-widest text-orange-650 uppercase font-semibold">02 / Autoridade Digital</span>
+              <h3 class="font-serif text-2xl font-semibold text-zinc-900 leading-snug mt-2">Branded Content</h3>
+              <p class="text-zinc-650 text-xs font-light leading-relaxed mt-3">
+                Roteirização e captação técnica e estética para clínicas e marcas que buscam alimentar feeds e canais proprietários com autoridade profissional.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filmmaker Local Card -->
+        <div class="col-span-12 md:col-span-4 p-1.5 bg-[#FAFAFA] border border-zinc-200/80 rounded-[2.5rem] shadow-sm flex flex-col justify-between overflow-hidden">
+          <div class="aspect-[4/3] w-full overflow-hidden rounded-[2rem] bg-zinc-150 border-b border-zinc-200">
+            <img src="./assets/local_filmmaker.png" alt="Filmmaker Local" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-mono tracking-widest text-orange-650 uppercase font-semibold">03 / Posicionamento Regional</span>
+              <h3 class="font-serif text-2xl font-semibold text-zinc-900 leading-snug mt-2">Filmmaker Local</h3>
+              <p class="text-zinc-650 text-xs font-light leading-relaxed mt-3">
+                Produções audiovisuais presenciais de alto nível para documentar a infraestrutura de clínicas médicas, estúdios ou marcos de marcas locais.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contato" class="py-32 px-4 relative reveal-section">
+    <div class="w-full max-w-3xl mx-auto text-center relative z-10">
+      
+      <!-- Section Header -->
+      <div class="mb-12">
+        <h2 class="font-serif text-3xl md:text-5xl font-semibold tracking-normal text-zinc-900 leading-[1.2]">
+          Vamos Criar seu Próximo Vídeo?
+        </h2>
+        <p class="text-zinc-650 font-light mt-4 text-sm leading-relaxed max-w-[45ch] mx-auto">
+          Preencha as informações abaixo para solicitar um orçamento. Eu entrarei em contato pelo WhatsApp com uma proposta customizada para o seu negócio.
+        </p>
+      </div>
+
+      <!-- Contact Form -->
+      <form id="contact-form" class="text-left space-y-6 bg-[#F5F5F5] border border-zinc-200/80 p-8 md:p-12 rounded-[2.5rem] shadow-lg relative">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Name Input -->
+          <div class="flex flex-col gap-2">
+            <label for="name" class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Nome Completo</label>
+            <input type="text" id="name" required class="w-full bg-zinc-100/65 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors text-zinc-900 placeholder-zinc-450 focus:bg-zinc-50" placeholder="Ex: Carla Mota">
+          </div>
+
+          <!-- Brand Instagram -->
+          <div class="flex flex-col gap-2">
+            <label for="instagram" class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Instagram ou Empresa</label>
+            <input type="text" id="instagram" required class="w-full bg-zinc-100/65 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors text-zinc-900 placeholder-zinc-450 focus:bg-zinc-50" placeholder="Ex: @clinicaalvis">
+          </div>
+        </div>
+
+        <!-- Service Type Selection -->
+        <div class="flex flex-col gap-2">
+          <label for="service" class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Em qual categoria seu projeto se enquadra?</label>
+          <select id="service" class="w-full bg-zinc-100 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors text-zinc-900">
+            <option value="UGC Creator" class="bg-[#F5F5F5] text-zinc-900">UGC Creator (Vídeos curtos de conversão)</option>
+            <option value="Produção de Conteúdo" class="bg-[#F5F5F5] text-zinc-900">Produção de Conteúdo para Redes Sociais</option>
+            <option value="Filmmaker Local" class="bg-[#F5F5F5] text-zinc-900">Filmmaker Local (Institucional / Clínica)</option>
+            <option value="Proposta Customizada" class="bg-[#F5F5F5] text-zinc-900">Preciso de algo sob medida</option>
+          </select>
+        </div>
+
+        <!-- Message Input -->
+        <div class="flex flex-col gap-2">
+          <label for="message" class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Conte sobre sua marca e seus objetivos</label>
+          <textarea id="message" required rows="4" class="w-full bg-zinc-100/65 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors text-zinc-900 placeholder-zinc-450 focus:bg-zinc-50 resize-none" placeholder="Conte brevemente sobre o seu produto/serviço e quais são seus objetivos com os novos vídeos."></textarea>
+        </div>
+
+        <!-- Submit CTA -->
+        <div class="pt-4 flex justify-center">
+          <button type="submit" id="submit-btn" class="w-full md:w-auto group relative inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-semibold uppercase tracking-wider text-white bg-zinc-900 rounded-full transition-all duration-500 hover:bg-zinc-800 active:scale-[0.98] cursor-pointer">
+            Enviar Proposta
+            <span class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
+              <i class="ph-light ph-arrow-up-right text-xs"></i>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Success Toast Modal -->
+  <div id="toast-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center px-4 bg-[#FAFAFA]/80 backdrop-blur-md">
+    <div class="p-1.5 bg-black/[0.02] border border-zinc-200/80 rounded-[2.5rem] w-full max-w-[400px]">
+      <div class="bg-[#F5F5F5] rounded-[calc(2.5rem-0.375rem)] p-8 text-center shadow-2xl relative">
+        <span class="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center border border-orange-500/25 mx-auto mb-6">
+          <i class="ph-light ph-check text-orange-600 text-2xl"></i>
+        </span>
+        <h3 class="font-serif text-xl font-semibold text-zinc-900 tracking-normal leading-tight">Proposta Enviada!</h3>
+        <p class="text-zinc-650 font-light text-xs md:text-sm mt-3 leading-relaxed">
+          Obrigado pelo contato. Carla irá analisar seu perfil e enviar uma resposta pelo WhatsApp em até 24 horas.
+        </p>
+        <button id="close-toast" class="mt-8 px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-zinc-900 rounded-full hover:bg-zinc-800 transition-colors">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-200/80 bg-[#FAFAFA] py-12 px-4 relative">
+    <div class="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand & Description -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left">
+        <span class="font-serif text-lg font-semibold tracking-[0.05em] text-zinc-900 flex items-center gap-1.5 justify-center md:justify-start">
+          CARLA MOTA<span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+        </span>
+        <p class="text-zinc-500 text-[10px] mt-1 tracking-wider uppercase">UGC Creator · Produção de Conteúdo · Filmmaker Local</p>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="text-[10px] text-zinc-500 font-light tracking-wide">
+        &copy; 2026 Carla Mota. Todos os direitos reservados.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts: Video Player, Menu Toggle & GSAP Animations -->
+  <script>
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Initial Load Animations (Hero)
+    window.addEventListener('DOMContentLoaded', () => {
+      const tl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.2 } });
+      
+      tl.from('.hero-badge', { opacity: 0, y: 15, delay: 0.1 })
+        .from('.hero-title-line', { opacity: 0, y: 50, stagger: 0.12 }, '-=0.8')
+        .from('.hero-sub', { opacity: 0, y: 20 }, '-=0.8')
+        .from('.hero-stats', { opacity: 0, scale: 0.96 }, '-=0.8')
+        .from('.portfolio-item', { opacity: 0, y: 40, stagger: 0.15 }, '-=0.8');
+    });
+
+    // Scroll Reveal on Sections
+    gsap.utils.toArray('.reveal-section').forEach((sec) => {
+      gsap.from(sec, {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sec,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        }
+      });
+    });
+
+    // Floating Menu Interactions (Mobile Toggle)
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = document.querySelectorAll('.mobile-link');
+    const spans = menuBtn.querySelectorAll('span');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      if (isOpen) {
+        // Close menu
+        mobileMenu.classList.add('hidden');
+        spans[0].classList.remove('rotate-45', 'translate-y-[5px]');
+        spans[1].classList.remove('opacity-0');
+        spans[2].classList.remove('-rotate-45', '-translate-y-[5px]');
+      } else {
+        // Open menu
+        mobileMenu.classList.remove('hidden');
+        spans[0].classList.add('rotate-45', 'translate-y-[5px]');
+        spans[1].classList.add('opacity-0');
+        spans[2].classList.add('-rotate-45', '-translate-y-[5px]');
+      }
+    });
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        spans[0].classList.remove('rotate-45', 'translate-y-[5px]');
+        spans[1].classList.remove('opacity-0');
+        spans[2].classList.remove('-rotate-45', '-translate-y-[5px]');
+      });
+    });
+
+    // Custom Video Click-to-Play Mechanics
+    const overlays = document.querySelectorAll('.play-overlay');
+    
+    overlays.forEach(overlay => {
+      overlay.addEventListener('click', () => {
+        const phoneFrame = overlay.closest('.phone-frame');
+        const video = phoneFrame.querySelector('video');
+        const playBtn = overlay.querySelector('.play-btn');
+        const playIcon = playBtn.querySelector('i');
+        
+        // Pause all other videos playing to avoid sound overlap
+        document.querySelectorAll('video').forEach(otherVideo => {
+          if (otherVideo !== video && !otherVideo.paused) {
+            otherVideo.pause();
+            const otherFrame = otherVideo.closest('.phone-frame');
+            const otherOverlay = otherFrame.querySelector('.play-overlay');
+            const otherPlayBtn = otherOverlay.querySelector('.play-btn');
+            const otherPlayIcon = otherPlayBtn.querySelector('i');
+            
+            otherOverlay.classList.remove('opacity-0', 'pointer-events-none');
+            otherPlayIcon.className = "ph-fill ph-play text-xl ml-1 text-zinc-900";
+          }
+        });
+
+        if (video.paused) {
+          video.play();
+          // Hide overlay, update button
+          overlay.classList.add('opacity-0', 'pointer-events-none');
+          playIcon.className = "ph-fill ph-pause text-xl text-zinc-900";
+          
+          // Re-enable click listener on video element to pause it
+          video.onclick = () => {
+            video.pause();
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            playIcon.className = "ph-fill ph-play text-xl ml-1 text-zinc-900";
+          };
+        }
+      });
+    });
+
+    // Form Submission & WhatsApp Redirect Simulation
+    const contactForm = document.getElementById('contact-form');
+    const toastModal = document.getElementById('toast-modal');
+    const closeToast = document.getElementById('close-toast');
+    const submitBtn = document.getElementById('submit-btn');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Simulate physical button press / loading animation
+      gsap.to(submitBtn, { scale: 0.95, duration: 0.2, yoyo: true, repeat: 1 });
+      submitBtn.classList.add('opacity-80');
+      submitBtn.innerHTML = 'Enviando...';
+
+      setTimeout(() => {
+        // Display toast modal
+        toastModal.classList.remove('hidden');
+        
+        // Reset button state
+        submitBtn.classList.remove('opacity-80');
+        submitBtn.innerHTML = 'Enviar Proposta <span class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center"><i class="ph-light ph-arrow-up-right text-xs"></i></span>';
+        
+        // WhatsApp Redirect Generation
+        const name = document.getElementById('name').value;
+        const instagram = document.getElementById('instagram').value;
+        const service = document.getElementById('service').value;
+        const message = document.getElementById('message').value;
+        
+        const baseMsg = `Olá Carla! Vi seu portfólio. Meu nome é ${name} (${instagram}). Gostaria de fazer um orçamento para ${service}. Detalhes: ${message}`;
+        const whatsappUrl = `https://wa.me/5599999999999?text=${encodeURIComponent(baseMsg)}`; // Placeholder whatsapp number
+
+        // Close toast acts as confirmation to open whatsapp
+        closeToast.onclick = () => {
+          toastModal.classList.add('hidden');
+          window.open(whatsappUrl, '_blank');
+          contactForm.reset();
+        };
+      }, 1200);
+    });
+  </script>
+</body>
+</html>

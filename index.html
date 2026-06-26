@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carla Mota — UGC Creator, Produção de Conteúdo e Filmmaker Local</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Vídeos estratégicos com intenção de conversão. UGC Creator, Produção de Conteúdo para Marcas e Filmmaker Local. Eleve o nível da sua marca hoje.">
+  <meta property="og:title" content="Carla Mota — Produção de Vídeos com Intenção de Conversão">
+  <meta property="og:description" content="UGC, branding e filmmaking local estruturado estrategicamente por quem entende de marketing e tráfego pago.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              950: '#050505',
+              900: '#0a0a0a',
+              800: '#0f0f0f',
+              700: '#141414',
+              600: '#1d1d1f',
+            },
+            accent: '#ea580c', // Vibrant Orange
+          },
+          fontFamily: {
+            display: ['Cormorant Garamond', 'serif'],
+            serif: ['Cormorant Garamond', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          animation: {
+            'marquee': 'marquee 35s linear infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-100%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Phosphor Icons Light -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAFAFA;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #E5E7EB;
+      border-radius: 99px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ea580c;
+    }
+
+    /* Custom styles for glowing backgrounds */
+    .radial-glow {
+      background: radial-gradient(circle at 50% 50%, rgba(234, 88, 12, 0.04) 0%, rgba(250, 250, 250, 0) 70%);
+    }
+
+    .clip-text-reveal {
+      clip-path: polygon(0 -30px, 100% -30px, 100% 130%, 0 130%);
+    }
+
+    .marquee-mask {
+      mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    }
+  </style>
+</head>
+<body class="bg-[#FAFAFA] text-zinc-800 font-sans selection:bg-orange-500 selection:text-white antialiased overflow-x-hidden relative">
+
+  <!-- Header: Floating Island -->
+  <header class="fixed top-0 left-0 right-0 z-50 flex justify-center p-4">
+    <div class="flex items-center justify-between w-full max-w-5xl px-6 py-3 bg-[#F5F5F5]/70 backdrop-blur-md border border-zinc-200/80 rounded-full shadow-lg transition-all duration-500 hover:border-zinc-300/80">
+      <!-- Logo -->
+      <a href="#hero" class="font-serif text-xl font-semibold tracking-[0.05em] text-zinc-900 flex items-center gap-2">
+        CARLA MOTA<span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+      </a>
+      
+      <!-- Nav Links (Desktop) -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#diferenciais" class="text-[11px] font-medium uppercase tracking-widest text-zinc-600 hover:text-zinc-900 transition-colors duration-300">Diferenciais</a>
+        <a href="#frentes" class="text-[11px] font-medium uppercase tracking-widest text-zinc-600 hover:text-zinc-900 transition-colors duration-300">Frentes</a>
+        <a href="portifolio.html" class="text-[11px] font-semibold uppercase tracking-widest text-orange-600 hover:text-orange-700 transition-colors duration-300">Portfólio</a>
+        <a href="metodo.html" class="text-[11px] font-medium uppercase tracking-widest text-zinc-600 hover:text-zinc-900 transition-colors duration-300">Método CICLO</a>
+      </nav>
+      
+      <!-- CTA Button -->
+      <div class="hidden md:block">
+        <a href="#contato" class="group relative inline-flex items-center gap-3 px-5 py-2 text-[11px] font-semibold uppercase tracking-wider text-white bg-zinc-900 rounded-full transition-all duration-500 hover:bg-zinc-800 active:scale-[0.98]">
+          Orçamento
+          <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
+            <i class="ph-light ph-arrow-up-right text-xs"></i>
+          </span>
+        </a>
+      </div>
+
+      <!-- Hamburger Menu (Mobile) -->
+      <button id="menu-btn" class="md:hidden flex flex-col justify-between w-5 h-3.5 group cursor-pointer focus:outline-none" aria-label="Abrir Menu">
+        <span class="w-full h-0.5 bg-zinc-850 transition-all duration-300 origin-left"></span>
+        <span class="w-full h-0.5 bg-zinc-850 transition-all duration-300"></span>
+        <span class="w-full h-0.5 bg-zinc-850 transition-all duration-300 origin-left"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Fullscreen Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 hidden flex-col items-center justify-center bg-[#FAFAFA]/98 backdrop-blur-3xl">
+      <nav class="flex flex-col items-center gap-8 text-center">
+        <a href="index.html#diferenciais" class="mobile-link text-2xl font-display font-bold text-zinc-600 hover:text-zinc-900 transition-colors">Diferenciais</a>
+        <a href="index.html#frentes" class="mobile-link text-2xl font-display font-bold text-zinc-600 hover:text-zinc-900 transition-colors">Frentes</a>
+        <a href="portifolio.html" class="mobile-link text-2xl font-display font-bold text-orange-650 hover:text-orange-700 transition-colors">Portfólio</a>
+        <a href="metodo.html" class="mobile-link text-2xl font-display font-bold text-zinc-600 hover:text-zinc-900 transition-colors">Método CICLO</a>
+        <a href="#contato" class="mobile-link group relative inline-flex items-center gap-3 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white bg-zinc-900 rounded-full mt-4">
+          Solicitar Orçamento
+          <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
+            <i class="ph-light ph-arrow-up-right text-xs"></i>
+          </span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-[100dvh] flex items-center justify-center pt-20 overflow-hidden bg-[#050505] text-white px-4 bg-cover bg-center md:bg-right lg:bg-[right_center]" style="background-image: url('./fundo hero.webp');">
+    <!-- Dark Gradient Overlay for readability -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/35 lg:from-black/85 lg:via-black/40 lg:to-transparent z-0 pointer-events-none"></div>
+
+    <div class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 py-16">
+      
+      <!-- Copy Block (Left) -->
+      <div class="lg:col-span-7 flex flex-col items-start text-left">
+        <!-- Eyebrow Badge -->
+        <span class="hero-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900/80 border border-zinc-800 text-[10px] uppercase tracking-[0.2em] font-medium text-orange-500 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+          Criativos de Alta Conversão
+        </span>
+        
+        <!-- Animated Headline in the style of the second reference image -->
+        <h1 class="font-sans text-4xl md:text-6xl font-extrabold tracking-[-0.03em] leading-[1.1] text-white mb-6">
+          <span class="block clip-text-reveal"><span class="hero-title-line inline-block pt-2 pb-2">Quer criar vídeos com</span></span>
+          <span class="block clip-text-reveal"><span class="hero-title-line inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 pt-2 pb-2 font-black">intenção real de conversão?</span></span>
+        </h1>
+        
+        <!-- Subhead -->
+        <p class="hero-sub text-zinc-400 text-sm md:text-base leading-relaxed max-w-[45ch] mb-8 font-light">
+          UGC, captação audiovisual e filmmaking estratégico para marcas e negócios locais escalarem suas vendas.
+        </p>
+        
+        <!-- Hero CTAs -->
+        <div class="hero-cta flex flex-wrap items-center gap-4">
+          <a href="#contato" class="group relative inline-flex items-center gap-3 px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-black bg-white rounded-full transition-all duration-500 hover:bg-zinc-200 active:scale-[0.98]">
+            Criar meu Vídeo
+            <span class="w-6 h-6 rounded-full bg-black/10 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
+              <i class="ph-light ph-arrow-up-right text-xs"></i>
+            </span>
+          </a>
+          <a href="#frentes" class="px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-white hover:bg-zinc-900 transition-all duration-300 border border-zinc-800 rounded-full">
+            Ver Serviços
+          </a>
+        </div>
+      </div>
+      
+      <!-- Visual Block (Right) -->
+      <div class="lg:col-span-5 w-full flex justify-center lg:justify-end hero-image-wrap relative z-10 lg:translate-x-12 lg:translate-y-2">
+        <!-- Recording Frame Grid Overlay (similar to the example image, borderless overlay directly over background) -->
+        <div class="relative w-full max-w-[420px] aspect-[4/5] overflow-hidden">
+          
+          <!-- Viewfinder Grid (3x3 Rule of Thirds Grid with Fade-Out at ends) -->
+          <div class="absolute inset-0 pointer-events-none">
+            <!-- Vertical Lines (using gradients for fade-out at top/bottom) -->
+            <div class="absolute top-4 bottom-4 left-[33.3%] w-[1px]" style="background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.2) 15%, rgba(255,255,255,0.2) 85%, transparent);"></div>
+            <div class="absolute top-4 bottom-4 left-[66.6%] w-[1px]" style="background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.2) 15%, rgba(255,255,255,0.2) 85%, transparent);"></div>
+            <!-- Horizontal Lines (using gradients for fade-out at left/right) -->
+            <div class="absolute left-4 right-4 top-[33.3%] h-[1px]" style="background: linear-gradient(to right, transparent, rgba(255,255,255,0.2) 15%, rgba(255,255,255,0.2) 85%, transparent);"></div>
+            <div class="absolute left-4 right-4 top-[66.6%] h-[1px]" style="background: linear-gradient(to right, transparent, rgba(255,255,255,0.2) 15%, rgba(255,255,255,0.2) 85%, transparent);"></div>
+          </div>
+
+          <!-- Camera HUD Options & Shutter (centered exactly as in the example) -->
+          <div class="absolute inset-x-0 bottom-0 p-6 flex flex-col items-center gap-4">
+            <!-- Modes Selector -->
+            <div class="flex items-center gap-6 text-[10px] font-mono tracking-widest text-white/50 font-medium select-none">
+              <span class="hover:text-white transition-colors cursor-pointer">VIDEO</span>
+              <span class="text-orange-500 font-bold border-b-2 border-orange-500 pb-0.5">PHOTO</span>
+              <span class="hover:text-white transition-colors cursor-pointer">SQUARE</span>
+            </div>
+            
+            <!-- Shutter Button -->
+            <div class="w-12 h-12 rounded-full border-2 border-white/80 flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300">
+              <div class="w-8 h-8 rounded-full bg-white"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Authority Band (Marquee) -->
+  <section class="border-y border-zinc-200/80 bg-[#F5F5F5] py-6 overflow-hidden relative marquee-mask">
+    <div class="flex overflow-x-hidden whitespace-nowrap">
+      <div class="animate-marquee flex items-center gap-12 text-zinc-600">
+        <span class="text-xs font-display font-medium uppercase tracking-[0.25em] flex items-center gap-3">
+          <i class="ph-light ph-user text-sm text-orange-600"></i> UGC Creator
+        </span>
+        <span class="w-1.5 h-1.5 rounded-full bg-zinc-300"></span>
+        <span class="text-xs font-display font-medium uppercase tracking-[0.25em] flex items-center gap-3">
+          <i class="ph-light ph-video-camera text-sm text-orange-600"></i> +150 Criativos Produzidos
+        </span>
+        <span class="w-1.5 h-1.5 rounded-full bg-zinc-300"></span>
+        <span class="text-xs font-display font-medium uppercase tracking-[0.25em] flex items-center gap-3">
+          <i class="ph-light ph-chart-line-up text-sm text-orange-600"></i> Conteúdo com foco em Conversão
+        </span>
+        <span class="w-1.5 h-1.5 rounded-full bg-zinc-300"></span>
+        <span class="text-xs font-display font-medium uppercase tracking-[0.25em] flex items-center gap-3">
+          <i class="ph-light ph-device-mobile text-sm text-orange-600"></i> Mobile-First Roteirizado
+        </span>
+        <span class="w-1.5 h-1.5 rounded-full bg-zinc-300 mr-12"></span>
+      </div>
+
+      <!-- Duplicate for infinite seamless scroll -->
+      <div class="animate-marquee flex items-center gap-12 text-zinc-600" aria-hidden="true">
+        <span class="text-xs font-display font-medium uppercase tracking-[0.25em] flex items-center gap-3">
+          <i class="ph-light ph-user text-sm text-orange-600"></i> UGC Creator
+        </span>
+        <span class="w-1.5 h-1.5 rounded-full bg-zinc-300"></span>
+        <span class="text-xs font-display font-medium uppercase tracking-[0.25em] flex items-center gap-3">
+          <i class="ph-light ph-video-camera text-sm text-orange-600"></i> +150 Criativos Produzidos
+        </span>
+        <span class="w-1.5 h-1.5 rounded-full bg-zinc-300"></span>
+        <span class="text-xs font-display font-medium uppercase tracking-[0.25em] flex items-center gap-3">
+          <i class="ph-light ph-chart-line-up text-sm text-orange-600"></i> Conteúdo com foco em Conversão
+        </span>
+        <span class="w-1.5 h-1.5 rounded-full bg-zinc-300"></span>
+        <span class="text-xs font-display font-medium uppercase tracking-[0.25em] flex items-center gap-3">
+          <i class="ph-light ph-device-mobile text-sm text-orange-600"></i> Mobile-First Roteirizado
+        </span>
+        <span class="w-1.5 h-1.5 rounded-full bg-zinc-300 mr-12"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bento Grid: Diferenciais -->
+  <section id="diferenciais" class="py-32 px-4 relative reveal-section">
+    <div class="w-full max-w-6xl mx-auto">
+      
+      <!-- Section Title -->
+      <div class="mb-16 text-center max-w-xl mx-auto">
+        <h2 class="font-serif text-3xl md:text-5xl font-semibold tracking-normal text-zinc-900 leading-[1.2]">
+          A Vantagem de Pensar Como Estrategista
+        </h2>
+        <p class="text-zinc-650 font-light mt-4 text-sm leading-relaxed">
+          Vídeos bonitos chamam atenção. Vídeos estratégicos trazem retorno financeiro real para a sua empresa.
+        </p>
+      </div>
+      
+      <!-- Bento Grid (Asymmetric Grid) -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bento-grid">
+        
+        <!-- Card 1: UGC que já nasce com intenção de conversão -->
+        <div class="col-span-12 md:col-span-8 p-1.5 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2rem] shadow-md transition-colors duration-500 ease-out hover:border-zinc-300/80 hover:bg-zinc-100/50 group bento-item relative overflow-hidden">
+          <!-- Ambient light layer -->
+          <div class="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-orange-500/[0.04] blur-3xl group-hover:bg-orange-500/[0.08] transition-all duration-700"></div>
+          
+          <div class="h-full bg-white/20 rounded-[calc(2rem-0.375rem)] p-8 md:p-10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] flex flex-col justify-between min-h-[300px] relative z-10">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center border border-orange-500/25">
+                <i class="ph-light ph-funnel text-orange-600 text-lg"></i>
+              </span>
+              <span class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Visão Estratégica</span>
+            </div>
+            <div class="mt-8">
+              <h3 class="font-serif text-2xl md:text-3xl font-semibold text-zinc-900 tracking-normal leading-[1.2] max-w-[20ch]">
+                UGC estruturado com lógica de tráfego pago.
+              </h3>
+              <p class="text-zinc-650 font-light text-xs md:text-sm leading-relaxed mt-3 max-w-[50ch]">
+                Diferente de quem apenas segue briefing, eu crio ganchos focados no seu funil e anúncios construídos para reter e converter frios prospects em compradores.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Clientes e Experiência local -->
+        <div class="col-span-12 md:col-span-4 p-1.5 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2rem] shadow-md transition-colors duration-500 ease-out hover:border-zinc-300/80 hover:bg-zinc-100/50 group bento-item relative overflow-hidden">
+          <!-- Ambient light layer -->
+          <div class="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-orange-500/[0.02] blur-3xl group-hover:bg-orange-500/[0.06] transition-all duration-700"></div>
+          
+          <div class="h-full bg-white/20 rounded-[calc(2rem-0.375rem)] p-8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] flex flex-col justify-between min-h-[300px] relative z-10">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-xl bg-zinc-200/50 flex items-center justify-center border border-zinc-300">
+                <i class="ph-light ph-pulse text-zinc-750 text-lg"></i>
+              </span>
+              <span class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Expertise Clínica</span>
+            </div>
+            <div class="mt-8">
+              <h3 class="font-serif text-2xl font-semibold text-zinc-900 tracking-normal leading-[1.2]">
+                Linguagem de alto padrão para saúde.
+              </h3>
+              <p class="text-zinc-650 font-light text-xs md:text-sm leading-relaxed mt-3">
+                Conheço o tom ético e as regras do setor. Experiência provada com clínicas de destaque como Alvis e Conquist.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Roteiro e Bastidores -->
+        <div class="col-span-12 md:col-span-5 p-1.5 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2rem] shadow-md transition-colors duration-500 ease-out hover:border-zinc-300/80 hover:bg-zinc-100/50 group bento-item relative overflow-hidden">
+          <!-- Ambient light layer -->
+          <div class="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-orange-500/[0.02] blur-3xl group-hover:bg-orange-500/[0.06] transition-all duration-700"></div>
+          
+          <div class="h-full bg-white/20 rounded-[calc(2rem-0.375rem)] p-8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] flex flex-col justify-between min-h-[300px] relative z-10">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-xl bg-zinc-200/50 flex items-center justify-center border border-zinc-300">
+                <i class="ph-light ph-film-strip text-zinc-750 text-lg"></i>
+              </span>
+              <span class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Processo Completo</span>
+            </div>
+            <div class="mt-8">
+              <h3 class="font-serif text-2xl font-semibold text-zinc-900 tracking-normal leading-[1.2]">
+                De ponta a ponta sem complicação.
+              </h3>
+              <p class="text-zinc-650 font-light text-xs md:text-sm leading-relaxed mt-3">
+                Do briefing e roteiro preliminar à captação, direção e edição final. Você recebe os arquivos prontos para publicar no feed ou nos anúncios.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Foco em Retorno Real (Visual Graph) -->
+        <div class="col-span-12 md:col-span-7 p-1.5 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2rem] shadow-md transition-colors duration-500 ease-out hover:border-zinc-300/80 hover:bg-zinc-100/50 group bento-item relative overflow-hidden">
+          <!-- Ambient light layer -->
+          <div class="absolute -bottom-24 -right-24 w-48 h-48 rounded-full bg-orange-500/[0.02] blur-3xl group-hover:bg-orange-500/[0.06] transition-all duration-700"></div>
+          
+          <div class="h-full bg-white/20 rounded-[calc(2rem-0.375rem)] p-8 md:p-10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] flex flex-col justify-between min-h-[300px] relative z-10">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center border border-orange-500/25">
+                <i class="ph-light ph-trend-up text-orange-600 text-lg"></i>
+              </span>
+              <span class="text-[10px] font-mono tracking-widest text-orange-650 uppercase font-semibold">Conversão focado</span>
+            </div>
+            <div class="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
+              <div>
+                <h3 class="font-serif text-2xl md:text-3xl font-semibold text-zinc-900 tracking-normal leading-[1.2]">
+                  Filmo o que converte, não apenas o que brilha.
+                </h3>
+                <p class="text-zinc-650 font-light text-xs md:text-sm leading-relaxed mt-3">
+                  Cada frame tem o propósito de reter a atenção. Um videomaker comum filma o que você pede. Eu filmo o que traz resultados.
+                </p>
+              </div>
+              
+              <!-- Subtle SVG Graph visualization for premium UI feel -->
+              <div class="w-full bg-[#FAFAFA] border border-zinc-200/85 rounded-2xl p-4 flex flex-col gap-2 relative shadow-inner">
+                <div class="flex items-center justify-between text-[10px] text-zinc-550 font-mono">
+                  <span>Conversão Ads</span>
+                  <span class="text-orange-650 font-semibold">+240%</span>
+                </div>
+                <svg viewBox="0 0 100 40" class="w-full h-16 text-orange-500 stroke-current" fill="none" stroke-width="2" stroke-linecap="round">
+                  <path d="M 0,38 C 20,38 30,25 50,22 C 70,18 80,5 100,2" />
+                  <path d="M 0,38 C 20,38 30,25 50,22 C 70,18 80,5 100,2 L 100,40 L 0,40 Z" fill="url(#grad)" opacity="0.05" />
+                  <defs>
+                    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#f97316" stop-opacity="0" />
+                      <stop offset="100%" stop-color="#f59e0b" stop-opacity="1" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Services / Frentes de Atuação -->
+  <section id="frentes" class="py-32 px-4 relative border-t border-zinc-200/80 reveal-section">
+    <div class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+      
+      <!-- Left Column: Sticky Title & Counter -->
+      <div class="lg:col-span-5 lg:sticky lg:top-32 h-fit flex flex-col justify-between">
+        <div>
+          <!-- Minimal tag -->
+          <div class="w-6 h-1 bg-orange-500 mb-6"></div>
+          <h2 class="font-serif text-4xl md:text-5xl font-semibold tracking-normal text-zinc-900 leading-[1.2]">
+            Frentes de Atuação
+          </h2>
+          <p class="text-zinc-650 font-light mt-6 text-sm leading-relaxed max-w-[36ch]">
+            Entregas focadas em diferentes etapas do crescimento da sua marca. Clique nos cards ao lado para entender cada processo.
+          </p>
+        </div>
+        
+        <!-- Custom visual counter for desktop -->
+        <div class="hidden lg:flex items-center gap-6 mt-16 text-zinc-400 font-display text-2xl font-semibold">
+          <span id="counter-01" class="text-zinc-850">01</span>
+          <div class="w-20 h-[1px] bg-zinc-300 relative">
+            <div id="counter-progress" class="absolute left-0 top-0 h-full w-1/3 bg-orange-500 transition-all duration-500"></div>
+          </div>
+          <span id="counter-max">03</span>
+        </div>
+      </div>
+      
+      <!-- Right Column: Scrolling Cards -->
+      <div class="lg:col-span-7 flex flex-col gap-16">
+        
+        <!-- Frente 1: UGC Creator -->
+        <div class="service-card p-2 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2.5rem] shadow-md hover:border-zinc-300/80 transition-all duration-700" data-index="01">
+          <div class="h-full bg-white/20 rounded-[calc(2.5rem-0.5rem)] overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
+            <div class="relative w-full aspect-[16/9] overflow-hidden bg-zinc-100 border-b border-zinc-200/80">
+              <img src="./assets/ugc_creator.png" alt="UGC Creator de beleza" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#F5F5F5]/40 via-transparent to-transparent"></div>
+            </div>
+            <div class="p-8">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-sm font-semibold uppercase tracking-widest text-orange-600">01 / UGC Creator</span>
+                <span class="text-[10px] text-zinc-650 font-mono">User Generated Content</span>
+              </div>
+              <h3 class="font-serif text-2xl font-semibold text-zinc-900 tracking-normal leading-[1.2]">
+                O formato de recomendação espontânea que vende.
+              </h3>
+              
+              <div class="mt-8 space-y-6 text-xs md:text-sm font-light text-zinc-750">
+                <div>
+                  <h4 class="font-semibold text-zinc-900 uppercase tracking-wider text-[11px] mb-2">O que é</h4>
+                  <p class="text-zinc-650">Vídeos de 15 a 60 segundos com visual orgânico de usuário comum, porém roteirizados e produzidos com intenção comercial.</p>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-zinc-900 uppercase tracking-wider text-[11px] mb-2">O que você entrega</h4>
+                  <p class="text-zinc-650">Vídeos finalizados prontos para Reels, TikTok e Shorts, contendo hooks, demonstração, prova social e chamada para ação.</p>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-zinc-900 uppercase tracking-wider text-[11px] mb-2">Quem contrata</h4>
+                  <p class="text-zinc-650">E-commerce, marcas de beleza, saúde, moda, apps e gestores de tráfego que necessitam de criativos que convertam.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frente 2: Produção de Conteúdo -->
+        <div class="service-card p-2 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2.5rem] shadow-md hover:border-zinc-300/80 transition-all duration-700" data-index="02">
+          <div class="h-full bg-white/20 rounded-[calc(2.5rem-0.5rem)] overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
+            <div class="relative w-full aspect-[16/9] overflow-hidden bg-zinc-100 border-b border-zinc-200/80">
+              <img src="./Foto%201.webp" alt="Produção de vídeos para marcas" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#F5F5F5]/40 via-transparent to-transparent"></div>
+            </div>
+            <div class="p-8">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-sm font-semibold uppercase tracking-widest text-orange-600">02 / Produção de Conteúdo</span>
+                <span class="text-[10px] text-zinc-650 font-mono">Branded Video</span>
+              </div>
+              <h3 class="font-serif text-2xl font-semibold text-zinc-900 tracking-normal leading-[1.2]">
+                Direção técnica e criativa sob demanda para marcas.
+              </h3>
+              
+              <div class="mt-8 space-y-6 text-xs md:text-sm font-light text-zinc-750">
+                <div>
+                  <h4 class="font-semibold text-zinc-900 uppercase tracking-wider text-[11px] mb-2">O que é</h4>
+                  <p class="text-zinc-650">Produção de vídeos no espaço físico ou em locação para compor o feed institucional, stories ou campanhas sazonais da marca.</p>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-zinc-900 uppercase tracking-wider text-[11px] mb-2">O que você entrega</h4>
+                  <p class="text-zinc-650">Arquivos prontos para publicação contendo captação limpa, edição dinâmica, color grading e legendas integradas.</p>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-zinc-900 uppercase tracking-wider text-[11px] mb-2">Quem contrata</h4>
+                  <p class="text-zinc-650">Empresas locais de médio porte, clínicas médicas e estúdios que buscam presença premium sem manter equipe interna.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frente 3: Filmmaker Local -->
+        <div class="service-card p-2 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2.5rem] shadow-md hover:border-zinc-300/80 transition-all duration-700" data-index="03">
+          <div class="h-full bg-white/20 rounded-[calc(2.5rem-0.5rem)] overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
+            <div class="relative w-full aspect-[16/9] overflow-hidden bg-zinc-100 border-b border-zinc-200/80">
+              <img src="./Foto%202.webp" alt="Filmmaker Local" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#F5F5F5]/40 via-transparent to-transparent"></div>
+            </div>
+            <div class="p-8">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-sm font-semibold uppercase tracking-widest text-orange-600">03 / Filmmaker Local</span>
+                <span class="text-[10px] text-zinc-650 font-mono">Storytelling Local</span>
+              </div>
+              <h3 class="font-serif text-2xl font-semibold text-zinc-900 tracking-normal leading-[1.2]">
+                Documentação de autoridade e humanização de negócios.
+              </h3>
+              
+              <div class="mt-8 space-y-6 text-xs md:text-sm font-light text-zinc-750">
+                <div>
+                  <h4 class="font-semibold text-zinc-900 uppercase tracking-wider text-[11px] mb-2">O que é</h4>
+                  <p class="text-zinc-650">Filmmaking profissional focado em captar a proposta de valor, a equipe e o espaço físico para construir conexão humana.</p>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-zinc-900 uppercase tracking-wider text-[11px] mb-2">O que você entrega</h4>
+                  <p class="text-zinc-650">Minidocumentários institucionais de 30 a 90 segundos, tours guiados e vídeos de posicionamento técnico do especialista.</p>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-zinc-900 uppercase tracking-wider text-[11px] mb-2">Quem contrata</h4>
+                  <p class="text-zinc-650">Clínicas de saúde, gastronomia premium, estúdios de estética e profissionais liberais que valorizam autoridade.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Testimonials: Prova Social -->
+  <section id="depoimentos" class="py-32 px-4 bg-[#F5F5F5]/60 relative reveal-section">
+    <!-- Accent line -->
+    <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-zinc-200 to-transparent"></div>
+
+    <div class="w-full max-w-6xl mx-auto">
+      
+      <!-- Section Title -->
+      <div class="mb-20 text-center max-w-xl mx-auto">
+        <span class="text-[10px] font-mono tracking-widest text-orange-600 uppercase font-semibold">Parcerias e Resultados</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-semibold tracking-normal text-zinc-900 leading-[1.2] mt-3">
+          Quem Confia na Estratégia
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Depoimento 1 -->
+        <div class="p-2 bg-[#FAFAFA] border border-zinc-200/80 rounded-3xl flex flex-col justify-between min-h-[240px] shadow-sm">
+          <div class="p-6">
+            <!-- Quote icon -->
+            <i class="ph-light ph-quotes text-3xl text-orange-600/20"></i>
+            <p class="text-zinc-700 font-light text-xs md:text-sm leading-relaxed mt-4 italic max-h-[80px] overflow-hidden">
+              "A Carla não entrega só um vídeo bonito. Ela entende o que atrai pacientes para a nossa clínica. O retorno foi imediato."
+            </p>
+          </div>
+          <div class="p-6 border-t border-zinc-150 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-zinc-200 flex items-center justify-center font-bold text-xs text-zinc-700">AA</div>
+            <div>
+              <h4 class="text-xs font-semibold text-zinc-900">Dra. Amanda Alvis</h4>
+              <p class="text-[10px] text-zinc-600 mt-0.5">Fundadora · Clínica Alvis</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 2 -->
+        <div class="p-2 bg-[#FAFAFA] border border-zinc-200/80 rounded-3xl flex flex-col justify-between min-h-[240px] shadow-sm">
+          <div class="p-6">
+            <i class="ph-light ph-quotes text-3xl text-orange-600/20"></i>
+            <p class="text-zinc-700 font-light text-xs md:text-sm leading-relaxed mt-4 italic max-h-[80px] overflow-hidden">
+              "Trabalhar com a Carla mudou nossa presença digital. Os criativos UGC reduziram nosso custo por aquisição em 40%."
+            </p>
+          </div>
+          <div class="p-6 border-t border-zinc-150 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-zinc-200 flex items-center justify-center font-bold text-xs text-zinc-700">TC</div>
+            <div>
+              <h4 class="text-xs font-semibold text-zinc-900">Thiago Conquist</h4>
+              <p class="text-[10px] text-zinc-600 mt-0.5">Diretor de Marketing · Conquist</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 3 -->
+        <div class="p-2 bg-[#FAFAFA] border border-zinc-200/80 rounded-3xl flex flex-col justify-between min-h-[240px] shadow-sm">
+          <div class="p-6">
+            <i class="ph-light ph-quotes text-3xl text-orange-600/20"></i>
+            <p class="text-zinc-700 font-light text-xs md:text-sm leading-relaxed mt-4 italic max-h-[80px] overflow-hidden">
+              "Profissional rara que une técnica de cinema com visão de tráfego pago. Recomendo de olhos fechados."
+            </p>
+          </div>
+          <div class="p-6 border-t border-zinc-150 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-zinc-200 flex items-center justify-center font-bold text-xs text-zinc-700">MM</div>
+            <div>
+              <h4 class="text-xs font-semibold text-zinc-900">Marina M.</h4>
+              <p class="text-[10px] text-zinc-600 mt-0.5">Gestora de Redes</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contato" class="py-32 px-4 relative reveal-section">
+    <div class="w-full max-w-3xl mx-auto text-center relative z-10">
+      
+      <!-- Section Header -->
+      <div class="mb-12">
+        <h2 class="font-serif text-3xl md:text-5xl font-semibold tracking-normal text-zinc-900 leading-[1.2]">
+          Pronto para Transformar sua Marca?
+        </h2>
+        <p class="text-zinc-650 font-light mt-4 text-sm leading-relaxed max-w-[45ch] mx-auto">
+          Preencha as informações abaixo e eu entrarei em contato com uma proposta de vídeo personalizada para a sua dor.
+        </p>
+      </div>
+
+      <!-- Contact Form -->
+      <form id="contact-form" class="text-left space-y-6 bg-[#F5F5F5] border border-zinc-200/80 p-8 md:p-12 rounded-[2.5rem] shadow-lg relative">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Name Input -->
+          <div class="flex flex-col gap-2">
+            <label for="name" class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Nome Completo</label>
+            <input type="text" id="name" required class="w-full bg-zinc-100/65 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors text-zinc-900 placeholder-zinc-450 focus:bg-zinc-50" placeholder="Ex: Carla Mota">
+          </div>
+
+          <!-- Brand Instagram -->
+          <div class="flex flex-col gap-2">
+            <label for="instagram" class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Instagram ou Empresa</label>
+            <input type="text" id="instagram" required class="w-full bg-zinc-100/65 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors text-zinc-900 placeholder-zinc-450 focus:bg-zinc-50" placeholder="Ex: @clinicaalvis">
+          </div>
+        </div>
+
+        <!-- Service Type Selection -->
+        <div class="flex flex-col gap-2">
+          <label for="service" class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Qual frente você precisa?</label>
+          <select id="service" class="w-full bg-zinc-100 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors text-zinc-900">
+            <option value="UGC Creator" class="bg-[#F5F5F5] text-zinc-900">UGC Creator (Vídeos curtos de conversão)</option>
+            <option value="Produção de Conteúdo" class="bg-[#F5F5F5] text-zinc-900">Produção de Conteúdo para Redes Sociais</option>
+            <option value="Filmmaker Local" class="bg-[#F5F5F5] text-zinc-900">Filmmaker Local (Institucional / Espaço / Lançamento)</option>
+            <option value="Combo Completo" class="bg-[#F5F5F5] text-zinc-900">Combo Completo (Vídeo Estratégico Integrado)</option>
+          </select>
+        </div>
+
+        <!-- Message Input -->
+        <div class="flex flex-col gap-2">
+          <label for="message" class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Detalhes do Projeto / Objetivos</label>
+          <textarea id="message" required rows="4" class="w-full bg-zinc-100/65 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors text-zinc-900 placeholder-zinc-450 focus:bg-zinc-50 resize-none" placeholder="Conte brevemente sobre o seu produto/serviço e o que espera com os vídeos."></textarea>
+        </div>
+
+        <!-- Button-in-Button CTA -->
+        <div class="pt-4 flex justify-center">
+          <button type="submit" id="submit-btn" class="w-full md:w-auto group relative inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-semibold uppercase tracking-wider text-white bg-zinc-900 rounded-full transition-all duration-500 hover:bg-zinc-800 active:scale-[0.98] cursor-pointer">
+            Enviar Proposta
+            <span class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
+              <i class="ph-light ph-arrow-up-right text-xs"></i>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Success Toast Modal -->
+  <div id="toast-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center px-4 bg-[#FAFAFA]/80 backdrop-blur-md">
+    <div class="p-1.5 bg-black/[0.02] border border-zinc-200/80 rounded-[2.5rem] w-full max-w-[400px]">
+      <div class="bg-[#F5F5F5] rounded-[calc(2.5rem-0.375rem)] p-8 text-center shadow-2xl relative">
+        <span class="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center border border-orange-500/25 mx-auto mb-6">
+          <i class="ph-light ph-check text-orange-600 text-2xl"></i>
+        </span>
+        <h3 class="font-serif text-xl font-semibold text-zinc-900 tracking-normal leading-tight">Proposta Enviada!</h3>
+        <p class="text-zinc-650 font-light text-xs md:text-sm mt-3 leading-relaxed">
+          Obrigado pelo contato. Carla irá analisar seu perfil e enviar uma resposta pelo WhatsApp em até 24 horas.
+        </p>
+        <button id="close-toast" class="mt-8 px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-zinc-900 rounded-full hover:bg-zinc-800 transition-colors">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-200/80 bg-[#FAFAFA] py-12 px-4 relative">
+    <div class="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand & Description -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left">
+        <span class="font-serif text-lg font-semibold tracking-[0.05em] text-zinc-900 flex items-center gap-1.5 justify-center md:justify-start">
+          CARLA MOTA<span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+        </span>
+        <p class="text-zinc-500 text-[10px] mt-1 tracking-wider uppercase">UGC Creator · Produção de Conteúdo · Filmmaker Local</p>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="text-[10px] text-zinc-500 font-light tracking-wide">
+        &copy; 2026 Carla Mota. Todos os direitos reservados.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts: Custom Animations & Interactivity -->
+  <script>
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Initial Load Animations (Hero)
+    window.addEventListener('DOMContentLoaded', () => {
+      const tl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.2 } });
+      
+      tl.from('.hero-badge', { opacity: 0, y: 15, delay: 0.1 })
+        .from('.hero-title-line', { opacity: 0, y: 50, stagger: 0.12 }, '-=0.8')
+        .from('.hero-sub', { opacity: 0, y: 20 }, '-=0.8')
+        .from('.hero-cta', { opacity: 0, scale: 0.96 }, '-=0.8')
+        .from('.hero-image-wrap', { opacity: 0, scale: 0.98, y: 30 }, '-=1');
+    });
+
+    // Scroll Reveal on Sections
+    gsap.utils.toArray('.reveal-section').forEach((sec) => {
+      gsap.from(sec, {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sec,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        }
+      });
+    });
+
+    // Bento Grid Items Individual Reveal (avoids viewport trigger/fading issues)
+    gsap.utils.toArray('.bento-item').forEach((item) => {
+      gsap.from(item, {
+        opacity: 0,
+        y: 25,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 92%',
+          toggleActions: 'play none none none',
+        }
+      });
+    });
+
+    // Active Card Highlight & Counter Progress on Scroll for Frentes de Atuação
+    const serviceCards = gsap.utils.toArray('.service-card');
+    const counterProgress = document.getElementById('counter-progress');
+    const counter01 = document.getElementById('counter-01');
+
+    serviceCards.forEach((card, index) => {
+      ScrollTrigger.create({
+        trigger: card,
+        start: 'top 60%',
+        end: 'bottom 40%',
+        onToggle: self => {
+          if (self.isActive) {
+            // Update mobile and desktop counter
+            const rawIndex = index + 1;
+            counter01.innerText = `0${rawIndex}`;
+            // Adjust progress bar
+            const percentage = (rawIndex / 3) * 100;
+            counterProgress.style.width = `${percentage}%`;
+          }
+        }
+      });
+    });
+
+    // Floating Menu Interactions (Mobile Toggle)
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = document.querySelectorAll('.mobile-link');
+    const spans = menuBtn.querySelectorAll('span');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      if (isOpen) {
+        // Close menu
+        mobileMenu.classList.add('hidden');
+        spans[0].classList.remove('rotate-45', 'translate-y-[5px]');
+        spans[1].classList.remove('opacity-0');
+        spans[2].classList.remove('-rotate-45', '-translate-y-[5px]');
+      } else {
+        // Open menu
+        mobileMenu.classList.remove('hidden');
+        spans[0].classList.add('rotate-45', 'translate-y-[5px]');
+        spans[1].classList.add('opacity-0');
+        spans[2].classList.add('-rotate-45', '-translate-y-[5px]');
+      }
+    });
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        spans[0].classList.remove('rotate-45', 'translate-y-[5px]');
+        spans[1].classList.remove('opacity-0');
+        spans[2].classList.remove('-rotate-45', '-translate-y-[5px]');
+      });
+    });
+
+    // Form Submission & WhatsApp Redirect Simulation
+    const contactForm = document.getElementById('contact-form');
+    const toastModal = document.getElementById('toast-modal');
+    const closeToast = document.getElementById('close-toast');
+    const submitBtn = document.getElementById('submit-btn');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Simulate physical button press / loading animation
+      gsap.to(submitBtn, { scale: 0.95, duration: 0.2, yoyo: true, repeat: 1 });
+      submitBtn.classList.add('opacity-80');
+      submitBtn.innerHTML = 'Enviando...';
+
+      setTimeout(() => {
+        // Display toast modal
+        toastModal.classList.remove('hidden');
+        
+        // Reset button state
+        submitBtn.classList.remove('opacity-80');
+        submitBtn.innerHTML = 'Enviar Proposta <span class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center"><i class="ph-light ph-arrow-up-right text-xs"></i></span>';
+        
+        // WhatsApp Redirect Generation
+        const name = document.getElementById('name').value;
+        const instagram = document.getElementById('instagram').value;
+        const service = document.getElementById('service').value;
+        const message = document.getElementById('message').value;
+        
+        const baseMsg = `Olá Carla! Meu nome é ${name} (${instagram}). Gostaria de fazer um orçamento de ${service}. Detalhes: ${message}`;
+        const whatsappUrl = `https://wa.me/5599999999999?text=${encodeURIComponent(baseMsg)}`; // Placeholder whatsapp number
+
+        // Close toast acts as confirmation to open whatsapp
+        closeToast.onclick = () => {
+          toastModal.classList.add('hidden');
+          window.open(whatsappUrl, '_blank');
+          contactForm.reset();
+        };
+      }, 1200);
+    });
+  </script>
+</body>
+</html>

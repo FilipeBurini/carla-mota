@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Método CICLO — Campanhas Estratégicas por Carla Mota</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="O Método CICLO é uma campanha estratégica de marketing concentrada com começo, meio e fim, focada em uma meta e oferta específicas para o seu mês mais importante.">
+  <meta property="og:title" content="Método CICLO — Campanhas de Alto Padrão por Carla Mota">
+  <meta property="og:description" content="Acelere o faturamento da sua clínica de saúde ou estética com campanhas estratégicas sem necessidade de contrato mensal.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts: Instrument Serif & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              950: '#050505',
+              900: '#0a0a0a',
+              800: '#0f0f0f',
+              700: '#141414',
+              600: '#1d1d1f',
+            },
+            accent: '#ea580c', // Vibrant Orange
+          },
+          fontFamily: {
+            display: ['Instrument Serif', 'serif'],
+            serif: ['Instrument Serif', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Phosphor Icons Light -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAFAFA;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #E5E7EB;
+      border-radius: 99px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ea580c;
+    }
+
+    /* Custom styles for glowing backgrounds */
+    .radial-glow {
+      background: radial-gradient(circle at 50% 50%, rgba(234, 88, 12, 0.04) 0%, rgba(250, 250, 250, 0) 70%);
+    }
+
+    .clip-text-reveal {
+      clip-path: polygon(0 -30px, 100% -30px, 100% 130%, 0 130%);
+    }
+
+    /* Spotlight effect for Animated Feature Carousel */
+    #feature-carousel-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(350px circle at var(--x, 0px) var(--y, 0px), rgba(234, 88, 12, 0.05), transparent 80%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+    #feature-carousel-card:hover::before {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-[#FAFAFA] text-zinc-800 font-sans selection:bg-orange-500 selection:text-white antialiased overflow-x-hidden relative">
+
+  <!-- Header: Floating Island -->
+  <header class="fixed top-0 left-0 right-0 z-50 flex justify-center p-4">
+    <div class="flex items-center justify-between w-full max-w-5xl px-6 py-3 bg-[#F5F5F5]/70 backdrop-blur-md border border-zinc-200/80 rounded-full shadow-lg transition-all duration-500 hover:border-zinc-300/80">
+      <!-- Logo -->
+      <a href="index.html" class="font-serif text-xl font-normal tracking-[0.05em] text-zinc-900 flex items-center gap-2">
+        CARLA MOTA<span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+      </a>
+      
+      <!-- Nav Links -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="text-[11px] font-medium uppercase tracking-widest text-zinc-600 hover:text-zinc-900 transition-colors duration-300">Home</a>
+        <a href="#o-metodo" class="text-[11px] font-medium uppercase tracking-widest text-zinc-600 hover:text-zinc-900 transition-colors duration-300">O Método</a>
+        <a href="#pacotes" class="text-[11px] font-medium uppercase tracking-widest text-zinc-600 hover:text-zinc-900 transition-colors duration-300">Pacotes</a>
+        <a href="portifolio.html" class="text-[11px] font-semibold uppercase tracking-widest text-orange-600 hover:text-orange-700 transition-colors duration-300">Portfólio</a>
+      </nav>
+      
+      <!-- CTA Button -->
+      <div class="hidden md:block">
+        <a href="#contato" class="group relative inline-flex items-center gap-3 px-5 py-2 text-[11px] font-semibold uppercase tracking-wider text-white bg-zinc-900 rounded-full transition-all duration-500 hover:bg-zinc-800 active:scale-[0.98]">
+          Quero meu Ciclo
+          <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
+            <i class="ph-light ph-arrow-up-right text-xs"></i>
+          </span>
+        </a>
+      </div>
+
+      <!-- Hamburger Menu (Mobile) -->
+      <button id="menu-btn" class="md:hidden flex flex-col justify-between w-5 h-3.5 group cursor-pointer focus:outline-none" aria-label="Abrir Menu">
+        <span class="w-full h-0.5 bg-zinc-800 transition-all duration-300 origin-left"></span>
+        <span class="w-full h-0.5 bg-zinc-800 transition-all duration-300"></span>
+        <span class="w-full h-0.5 bg-zinc-800 transition-all duration-300 origin-left"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Fullscreen Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 hidden flex-col items-center justify-center bg-[#FAFAFA]/98 backdrop-blur-3xl">
+      <nav class="flex flex-col items-center gap-8 text-center">
+        <a href="index.html" class="mobile-link text-2xl font-display font-normal text-zinc-600 hover:text-zinc-900 transition-colors">Home</a>
+        <a href="#o-metodo" class="mobile-link text-2xl font-display font-normal text-zinc-600 hover:text-zinc-900 transition-colors">O Método</a>
+        <a href="#pacotes" class="mobile-link text-2xl font-display font-normal text-zinc-600 hover:text-zinc-900 transition-colors">Pacotes</a>
+        <a href="portifolio.html" class="mobile-link text-2xl font-display font-normal text-orange-650 hover:text-orange-700 transition-colors">Portfólio</a>
+        <a href="#contato" class="mobile-link group relative inline-flex items-center gap-3 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white bg-zinc-900 rounded-full mt-4">
+          Solicitar Orçamento
+          <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
+            <i class="ph-light ph-arrow-up-right text-xs"></i>
+          </span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section: Premium & Light -->
+  <section id="hero" class="relative min-h-[90dvh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-[#FAFAFA] text-zinc-800 px-4 radial-glow">
+    <div class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 py-8">
+      
+      <!-- Copy Block (Left) -->
+      <div class="lg:col-span-7 flex flex-col items-start text-left">
+        <!-- Eyebrow Badge -->
+        <span class="hero-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-[10px] uppercase tracking-[0.2em] font-medium text-orange-650 mb-6 shadow-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+          Método CICLO
+        </span>
+        
+        <!-- Animated Headline -->
+        <h1 class="font-sans text-4xl md:text-6xl font-extrabold tracking-[-0.03em] leading-[1.1] text-zinc-900 mb-6">
+          <span class="block clip-text-reveal"><span class="hero-title-line inline-block pt-1 pb-1">Campanhas estratégicas</span></span>
+          <span class="block clip-text-reveal"><span class="hero-title-line inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600 pt-1 pb-1 font-black">para vender mais</span></span>
+          <span class="block clip-text-reveal"><span class="hero-title-line inline-block pt-1 pb-1">no momento certo.</span></span>
+        </h1>
+        
+        <!-- Subhead -->
+        <p class="hero-sub text-zinc-650 text-sm md:text-base leading-relaxed max-w-[45ch] mb-8 font-light">
+          Uma campanha de marketing de alto padrão concentrada, com começo, meio e fim. Focada em uma meta e oferta específicas para o mês mais importante do seu negócio.
+        </p>
+        
+        <!-- Hero CTAs -->
+        <div class="hero-cta flex flex-wrap items-center gap-4">
+          <a href="#pacotes" class="group relative inline-flex items-center gap-3 px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-white bg-zinc-900 rounded-full transition-all duration-500 hover:bg-zinc-800 active:scale-[0.98]">
+            Ver Pacotes
+            <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
+              <i class="ph-light ph-arrow-up-right text-xs"></i>
+            </span>
+          </a>
+          <a href="#o-metodo" class="px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 transition-all duration-300 border border-zinc-300 rounded-full">
+            Entender o Método
+          </a>
+        </div>
+      </div>
+      
+      <!-- Visual Block (Right): Viewfinder with Portrait -->
+      <div class="lg:col-span-5 w-full flex justify-center lg:justify-end hero-image-wrap relative z-10">
+        <div class="relative w-full max-w-[380px] aspect-[4/5] overflow-hidden rounded-[2.5rem] p-1.5 bg-[#F5F5F5] border border-zinc-200 shadow-xl transition-transform duration-500 hover:scale-[1.01]">
+          <div class="relative w-full h-full rounded-[calc(2.5rem-0.375rem)] overflow-hidden bg-zinc-100">
+            <!-- Image -->
+            <img src="./Foto Carla.jpeg" alt="Carla Mota" class="w-full h-full object-cover">
+            
+            <!-- White subtle gradient overlay at bottom -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+
+            <!-- Viewfinder Grid (3x3 Rule of Thirds Grid) -->
+            <div class="absolute inset-0 pointer-events-none">
+              <!-- Vertical Lines -->
+              <div class="absolute top-4 bottom-4 left-[33.3%] w-[1px]" style="background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15) 15%, rgba(255,255,255,0.15) 85%, transparent);"></div>
+              <div class="absolute top-4 bottom-4 left-[66.6%] w-[1px]" style="background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15) 15%, rgba(255,255,255,0.15) 85%, transparent);"></div>
+              <!-- Horizontal Lines -->
+              <div class="absolute left-4 right-4 top-[33.3%] h-[1px]" style="background: linear-gradient(to right, transparent, rgba(255,255,255,0.15) 15%, rgba(255,255,255,0.15) 85%, transparent);"></div>
+              <div class="absolute left-4 right-4 top-[66.6%] h-[1px]" style="background: linear-gradient(to right, transparent, rgba(255,255,255,0.15) 15%, rgba(255,255,255,0.15) 85%, transparent);"></div>
+            </div>
+
+            <!-- Camera HUD Options & Shutter Overlay -->
+            <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col items-center gap-3">
+              <div class="flex items-center gap-5 text-[9px] font-mono tracking-widest text-white/60 font-medium select-none">
+                <span class="hover:text-white transition-colors cursor-pointer">CAMPAIGN</span>
+                <span class="text-orange-400 font-bold border-b border-orange-400 pb-0.5">CICLO</span>
+                <span class="hover:text-white transition-colors cursor-pointer">RESULTS</span>
+              </div>
+              <div class="w-10 h-10 rounded-full border border-white/60 flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300">
+                <div class="w-7 h-7 rounded-full bg-white/90"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: O que é e Para Quem é -->
+  <section id="o-metodo" class="py-24 px-4 relative border-t border-zinc-200/60 bg-white reveal-section">
+    <div class="w-full max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: Explaining the Method -->
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-[10px] font-mono tracking-widest text-orange-650 uppercase font-semibold">Sem Contrato Mensal</span>
+          <h2 class="font-serif text-3xl md:text-5xl font-normal tracking-normal text-zinc-900 leading-[1.2]">
+            O que é o Método CICLO?
+          </h2>
+          <p class="text-zinc-650 font-light text-sm leading-relaxed max-w-[50ch]">
+            O Método CICLO é uma campanha estratégica de marketing entregue como um <strong>serviço pontual (avulso)</strong>. 
+          </p>
+          <p class="text-zinc-650 font-light text-sm leading-relaxed max-w-[50ch]">
+            Em vez de gastar energia mantendo posts genéricos o ano todo, nós concentramos nossos esforços em uma <strong>campanha coesa, com começo, meio e fim</strong>, estruturada para promover uma oferta específica no seu mês mais estratégico.
+          </p>
+          <p class="text-zinc-650 font-light text-sm leading-relaxed max-w-[50ch]">
+            Isso eleva exponencialmente o seu potencial de conversão, já que toda a comunicação é projetada de ponta a ponta para guiar o público até a decisão de compra.
+          </p>
+        </div>
+
+        <!-- Right: For Whom is it -->
+        <div class="lg:col-span-6 lg:pl-8 p-1.5 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2.5rem] shadow-sm">
+          <div class="bg-white rounded-[calc(2.5rem-0.5rem)] p-8 md:p-10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
+            <h3 class="font-serif text-2xl font-normal text-zinc-900 mb-6">Para quem é?</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-orange-100 flex items-center justify-center border border-orange-200 mt-0.5 flex-shrink-0">
+                  <i class="ph-light ph-check text-orange-650 text-xs"></i>
+                </span>
+                <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed">
+                  Clínicas e profissionais de estética ou saúde que desejam aproveitar o potencial máximo de datas comemorativas e períodos sazonais de alta demanda.
+                </p>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-orange-100 flex items-center justify-center border border-orange-200 mt-0.5 flex-shrink-0">
+                  <i class="ph-light ph-check text-orange-650 text-xs"></i>
+                </span>
+                <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed">
+                  Profissionais que planejam o lançamento de um novo procedimento ou pacote de tratamentos com uma campanha de vendas bem estruturada.
+                </p>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-orange-100 flex items-center justify-center border border-orange-200 mt-0.5 flex-shrink-0">
+                  <i class="ph-light ph-check text-orange-650 text-xs"></i>
+                </span>
+                <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed">
+                  Empresas que ainda não investem em gestão contínua de redes sociais, mas necessitam de um movimento estratégico pontual para acelerar vendas.
+                </p>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-orange-100 flex items-center justify-center border border-orange-200 mt-0.5 flex-shrink-0">
+                  <i class="ph-light ph-check text-orange-650 text-xs"></i>
+                </span>
+                <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed">
+                  Negócios que já possuem gestão mensal ativa, mas buscam reforçar o faturamento de um mês específico com uma campanha de vendas extra de alta intensidade.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section: AS 5 FASES DO MÉTODO (Aceternity UI Timeline style) -->
+  <section id="fases" class="py-32 px-4 relative bg-[#FAFAFA] reveal-section overflow-hidden">
+    <div class="w-full max-w-5xl mx-auto">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-xl mx-auto mb-20">
+        <span class="text-[10px] font-mono tracking-widest text-orange-650 uppercase font-semibold">Metodologia Ciclo</span>
+        <h2 class="font-serif text-4xl md:text-6xl font-normal tracking-tight text-zinc-900 mt-3">
+          As 5 Fases do Método
+        </h2>
+        <p class="text-zinc-650 font-light mt-4 text-xs md:text-sm leading-relaxed">
+          Toda campanha CICLO segue a mesma estrutura estratégica — da escuta ao resultado.
+        </p>
+      </div>
+
+      <!-- Timeline Container -->
+      <div id="timeline-container" class="relative w-full">
+        <!-- Vertical Timeline Track -->
+        <div class="absolute left-8 lg:left-[25%] top-0 bottom-0 w-[2px] bg-zinc-200 pointer-events-none">
+          <!-- Scrolling Active Line -->
+          <div id="timeline-progress-line" class="absolute top-0 left-0 w-full h-0 bg-gradient-to-b from-orange-500 to-amber-500 rounded-full"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 py-12 timeline-step">
+          <!-- Left side: Step Indicator (Sticky on Desktop) -->
+          <div class="lg:col-span-3 flex lg:justify-end items-start pt-1 lg:sticky lg:top-40 h-fit pl-14 lg:pl-0">
+            <div class="text-left lg:text-right">
+              <span class="font-serif text-5xl md:text-6xl font-normal italic text-orange-600 block leading-none">C</span>
+              <span class="text-xs font-mono tracking-widest text-zinc-500 uppercase block mt-1">CONTEXTO</span>
+            </div>
+          </div>
+
+          <!-- Middle dot overlay -->
+          <div class="absolute left-8 lg:left-[25%] top-14 -translate-x-[5px] w-[12px] h-[12px] rounded-full bg-zinc-200 border-2 border-white z-10 timeline-dot"></div>
+
+          <!-- Right side: Content Card -->
+          <div class="lg:col-span-9 pl-14 lg:pl-4">
+            <div class="p-1 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2.5rem] shadow-sm hover:border-zinc-300 hover:bg-zinc-100/50 transition-all duration-500">
+              <div class="bg-white rounded-[calc(2.5rem-0.5rem)] p-8 md:p-10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
+                <h3 class="font-serif text-2xl md:text-3xl font-normal text-zinc-950 mb-4">C — CONTEXTO</h3>
+                <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mb-6">
+                  Antes de criar qualquer publicação, realizamos um raio-x profundo do seu negócio. Mapeamos o seu posicionamento atual, a reputação da sua marca na região e analisamos minuciosamente o que os seus concorrentes diretos estão fazendo (e onde estão errando). Com esse diagnóstico em mãos, identificamos as reais oportunidades do mercado local para desenhar uma campanha que se destaque imediatamente do ruído digital comum e posicione você como a escolha óbvia da sua região.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                  <img src="./assets/hero.png" alt="Análise de Contexto" class="w-full rounded-2xl border border-zinc-150 shadow-sm object-cover aspect-[4/3]">
+                  <img src="./assets/hero_cinematic.png" alt="Moodboard Estratégico" class="w-full rounded-2xl border border-zinc-150 shadow-sm object-cover aspect-[4/3] hidden md:block">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 py-12 timeline-step">
+          <!-- Left side: Step Indicator -->
+          <div class="lg:col-span-3 flex lg:justify-end items-start pt-1 lg:sticky lg:top-40 h-fit pl-14 lg:pl-0">
+            <div class="text-left lg:text-right">
+              <span class="font-serif text-5xl md:text-6xl font-normal italic text-orange-600 block leading-none">I</span>
+              <span class="text-xs font-mono tracking-widest text-zinc-500 uppercase block mt-1">INTENÇÃO</span>
+            </div>
+          </div>
+
+          <!-- Middle dot overlay -->
+          <div class="absolute left-8 lg:left-[25%] top-14 -translate-x-[5px] w-[12px] h-[12px] rounded-full bg-zinc-200 border-2 border-white z-10 timeline-dot"></div>
+
+          <!-- Right side: Content Card -->
+          <div class="lg:col-span-9 pl-14 lg:pl-4">
+            <div class="p-1 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2.5rem] shadow-sm hover:border-zinc-300 hover:bg-zinc-100/50 transition-all duration-500">
+              <div class="bg-white rounded-[calc(2.5rem-0.5rem)] p-8 md:p-10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
+                <h3 class="font-serif text-2xl md:text-3xl font-normal text-zinc-950 mb-4">I — INTENÇÃO</h3>
+                <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mb-6">
+                  Nenhuma campanha funciona sem uma meta cirúrgica. Nesta fase, definimos o objetivo central do mês (ex: preencher a agenda de um protocolo de alto valor, como lavieen ou bioestimuladores). Estruturamos uma oferta irresistível, desenhamos o modelo de precificação estratégica e criamos o "ângulo criativo" — a narrativa central que tornará o seu serviço desejável e urgente, ativando os gatilhos certos no público-alvo.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                  <img src="./assets/brand_content.png" alt="Estruturação de Oferta" class="w-full rounded-2xl border border-zinc-150 shadow-sm object-cover aspect-[4/3]">
+                  <img src="./assets/local_filmmaker.png" alt="Planejamento de Roteiro" class="w-full rounded-2xl border border-zinc-150 shadow-sm object-cover aspect-[4/3] hidden md:block">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 py-12 timeline-step">
+          <!-- Left side: Step Indicator -->
+          <div class="lg:col-span-3 flex lg:justify-end items-start pt-1 lg:sticky lg:top-40 h-fit pl-14 lg:pl-0">
+            <div class="text-left lg:text-right">
+              <span class="font-serif text-5xl md:text-6xl font-normal italic text-orange-600 block leading-none">C</span>
+              <span class="text-xs font-mono tracking-widest text-zinc-500 uppercase block mt-1">CONTEÚDO</span>
+            </div>
+          </div>
+
+          <!-- Middle dot overlay -->
+          <div class="absolute left-8 lg:left-[25%] top-14 -translate-x-[5px] w-[12px] h-[12px] rounded-full bg-zinc-200 border-2 border-white z-10 timeline-dot"></div>
+
+          <!-- Right side: Content Card -->
+          <div class="lg:col-span-9 pl-14 lg:pl-4">
+            <div class="p-1 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2.5rem] shadow-sm hover:border-zinc-300 hover:bg-zinc-100/50 transition-all duration-500">
+              <div class="bg-white rounded-[calc(2.5rem-0.5rem)] p-8 md:p-10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
+                <h3 class="font-serif text-2xl md:text-3xl font-normal text-zinc-950 mb-4">C — CONTEÚDO</h3>
+                <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mb-6">
+                  Aqui a campanha ganha vida. Desenvolvemos o roteiro detalhado de cada vídeo e sequência de Stories, garantindo ganchos (hooks) nos primeiros 3 segundos para reter a atenção. Produzimos e editamos os Reels (com gravação presencial ou curadoria de ativos de alta qualidade) e criamos os carrosséis e posts estáticos com design limpo e tipografia editorial de alto padrão. Cada legenda é escrita com técnicas de copywriting focadas em direcionar o leitor para o fechamento no Direct ou WhatsApp.
+                </p>
+                <div class="w-full mt-6">
+                  <img src="./assets/ugc_creator.png" alt="Produção de Vídeo" class="w-full rounded-2xl border border-zinc-150 shadow-sm object-cover aspect-[16/10]">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 py-12 timeline-step">
+          <!-- Left side: Step Indicator -->
+          <div class="lg:col-span-3 flex lg:justify-end items-start pt-1 lg:sticky lg:top-40 h-fit pl-14 lg:pl-0">
+            <div class="text-left lg:text-right">
+              <span class="font-serif text-5xl md:text-6xl font-normal italic text-orange-600 block leading-none">L</span>
+              <span class="text-xs font-mono tracking-widest text-zinc-500 uppercase block mt-1">LANÇAMENTO</span>
+            </div>
+          </div>
+
+          <!-- Middle dot overlay -->
+          <div class="absolute left-8 lg:left-[25%] top-14 -translate-x-[5px] w-[12px] h-[12px] rounded-full bg-zinc-200 border-2 border-white z-10 timeline-dot"></div>
+
+          <!-- Right side: Content Card -->
+          <div class="lg:col-span-9 pl-14 lg:pl-4">
+            <div class="p-1 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2.5rem] shadow-sm hover:border-zinc-300 hover:bg-zinc-100/50 transition-all duration-500">
+              <div class="bg-white rounded-[calc(2.5rem-0.5rem)] p-8 md:p-10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
+                <h3 class="font-serif text-2xl md:text-3xl font-normal text-zinc-950 mb-4">L — LANÇAMENTO</h3>
+                <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mb-6">
+                  A campanha vai ao ar seguindo uma ordem cronológica precisa, dividida em fases de conscientização, desejo e fechamento. Durante esse período, acompanhamos ativamente o engajamento e a recepção do público. Ajustamos ganchos em tempo real se necessário e ativamos o fluxo de captação de leads. O objetivo nesta fase é transformar a atenção gerada no feed em conversas ativas de vendas com potenciais pacientes interessados.
+                </p>
+                <div class="w-full mt-6">
+                  <img src="./Foto 1.webp" alt="Campanha no Ar" class="w-full rounded-2xl border border-zinc-150 shadow-sm object-cover aspect-[16/10]">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 py-12 timeline-step">
+          <!-- Left side: Step Indicator -->
+          <div class="lg:col-span-3 flex lg:justify-end items-start pt-1 lg:sticky lg:top-40 h-fit pl-14 lg:pl-0">
+            <div class="text-left lg:text-right">
+              <span class="font-serif text-5xl md:text-6xl font-normal italic text-orange-600 block leading-none">O</span>
+              <span class="text-xs font-mono tracking-widest text-zinc-500 uppercase block mt-1">OBSERVAÇÃO</span>
+            </div>
+          </div>
+
+          <!-- Middle dot overlay -->
+          <div class="absolute left-8 lg:left-[25%] top-14 -translate-x-[5px] w-[12px] h-[12px] rounded-full bg-zinc-200 border-2 border-white z-10 timeline-dot"></div>
+
+          <!-- Right side: Content Card -->
+          <div class="lg:col-span-9 pl-14 lg:pl-4">
+            <div class="p-1 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2.5rem] shadow-sm hover:border-zinc-300 hover:bg-zinc-100/50 transition-all duration-500">
+              <div class="bg-white rounded-[calc(2.5rem-0.5rem)] p-8 md:p-10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
+                <h3 class="font-serif text-2xl md:text-3xl font-normal text-zinc-950 mb-4">O — OBSERVAÇÃO</h3>
+                <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mb-6">
+                  Uma campanha bem-sucedida gera dados valiosos. Ao encerrar o mês, consolidamos todas as métricas em um Relatório CICLO detalhado. Analisamos o custo por lead, as taxas de conversão da oferta, quais formatos performaram melhor e o retorno real do investimento. Com base nesses aprendizados, entregamos o planejamento estratégico recomendado para o próximo ciclo de crescimento, garantindo que sua marca continue evoluindo mês após mês.
+                </p>
+                <div class="w-full mt-6">
+                  <img src="./Foto 2.webp" alt="Relatório Final" class="w-full rounded-2xl border border-zinc-150 shadow-sm object-cover aspect-[16/10]">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Cronograma das 4 Semanas -->
+  <section id="cronograma" class="py-28 px-4 relative border-t border-zinc-200/60 bg-white reveal-section">
+    <div class="w-full max-w-6xl mx-auto">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        <!-- Sticky Left Panel -->
+        <div class="lg:col-span-5 lg:sticky lg:top-32">
+          <div class="w-6 h-1 bg-orange-500 mb-6"></div>
+          <h2 class="font-serif text-3xl md:text-5xl font-normal tracking-normal text-zinc-900 leading-[1.2]">
+            Estrutura das 4 Semanas
+          </h2>
+          <p class="text-zinc-650 font-light mt-6 text-sm leading-relaxed max-w-[36ch]">
+            A distribuição cronológica do conteúdo garante que o público seja conduzido em uma jornada lógica: do primeiro contato com a oferta ao fechamento intensivo.
+          </p>
+          
+          <div class="hidden lg:flex items-center gap-4 mt-12 text-[11px] font-mono tracking-widest text-zinc-400">
+            <span class="text-zinc-800 font-bold">1 MÊS</span>
+            <div class="w-16 h-[1px] bg-zinc-250"></div>
+            <span>4 PASSOS DE CONVERSÃO</span>
+          </div>
+        </div>
+
+        <!-- Scrollable Right Panel -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Semana 1 -->
+          <div class="week-card p-6 bg-[#F5F5F5] border border-zinc-200/80 rounded-2xl transition-all duration-300 hover:border-zinc-300 hover:bg-zinc-100/50">
+            <div class="flex justify-between items-start gap-4 flex-wrap">
+              <div>
+                <span class="text-[10px] font-mono tracking-wider text-orange-650 uppercase font-semibold">Semana 1 — Fase Despertar</span>
+                <h3 class="font-serif text-xl font-normal text-zinc-900 mt-1">Criar desejo antes da oferta</h3>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-white border border-zinc-200 text-[10px] font-medium tracking-wider text-zinc-600 uppercase">Foco: Autoridade</span>
+            </div>
+            <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mt-4">
+              <strong>Conteúdo principal:</strong> Posicionamento de autoridade, bastidores minuciosos do procedimento e a conscientização sobre o problema exato que o seu serviço resolve.
+            </p>
+          </div>
+
+          <!-- Semana 2 -->
+          <div class="week-card p-6 bg-[#F5F5F5] border border-zinc-200/80 rounded-2xl transition-all duration-300 hover:border-zinc-300 hover:bg-zinc-100/50">
+            <div class="flex justify-between items-start gap-4 flex-wrap">
+              <div>
+                <span class="text-[10px] font-mono tracking-wider text-orange-650 uppercase font-semibold">Semana 2 — Fase Revelar</span>
+                <h3 class="font-serif text-xl font-normal text-zinc-900 mt-1">Apresentar a oferta com clareza</h3>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-white border border-zinc-200 text-[10px] font-medium tracking-wider text-zinc-600 uppercase">Foco: Lançamento</span>
+            </div>
+            <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mt-4">
+              <strong>Conteúdo principal:</strong> Abertura oficial das vendas do pacote ou serviço sazonal, chamadas de ação diretas para o link ou WhatsApp e detalhamento claro das condições exclusivas.
+            </p>
+          </div>
+
+          <!-- Semana 3 -->
+          <div class="week-card p-6 bg-[#F5F5F5] border border-zinc-200/80 rounded-2xl transition-all duration-300 hover:border-zinc-300 hover:bg-zinc-100/50">
+            <div class="flex justify-between items-start gap-4 flex-wrap">
+              <div>
+                <span class="text-[10px] font-mono tracking-wider text-orange-650 uppercase font-semibold">Semana 3 — Fase Convencer</span>
+                <h3 class="font-serif text-xl font-normal text-zinc-900 mt-1">Quebrar objeções e gerar provas</h3>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-white border border-zinc-200 text-[10px] font-medium tracking-wider text-zinc-600 uppercase">Foco: Prova Social</span>
+            </div>
+            <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mt-4">
+              <strong>Conteúdo principal:</strong> Exibição de depoimentos em formato de vídeo/texto, publicação de perguntas frequentes (FAQs), demonstração de antes e depois legítimos e ganchos de escassez/urgência.
+            </p>
+          </div>
+
+          <!-- Semana 4 -->
+          <div class="week-card p-6 bg-[#F5F5F5] border border-zinc-200/80 rounded-2xl transition-all duration-300 hover:border-zinc-300 hover:bg-zinc-100/50">
+            <div class="flex justify-between items-start gap-4 flex-wrap">
+              <div>
+                <span class="text-[10px] font-mono tracking-wider text-orange-650 uppercase font-semibold">Semana 4 — Fase Fechar</span>
+                <h3 class="font-serif text-xl font-normal text-zinc-900 mt-1">Encerrar com máxima intensidade</h3>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-white border border-zinc-200 text-[10px] font-medium tracking-wider text-zinc-600 uppercase">Foco: Conversão</span>
+            </div>
+            <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mt-4">
+              <strong>Conteúdo principal:</strong> Alertas de últimas vagas ou encerramento das vagas promocionais, relógio com contagem regressiva nos Stories e estímulo decisivo para fechar conversas inacabadas.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pricing Section: Pacotes e Investimento -->
+  <section id="pacotes" class="py-28 px-4 relative bg-[#FAFAFA] reveal-section">
+    <div class="w-full max-w-6xl mx-auto">
+      
+      <!-- Section Title -->
+      <div class="mb-20 text-center max-w-xl mx-auto">
+        <span class="text-[10px] font-mono tracking-widest text-orange-650 uppercase font-semibold">Escolha o Melhor Caminho</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-normal tracking-normal text-zinc-900 leading-[1.2] mt-3">
+          Pacotes e Investimento
+        </h2>
+        <p class="text-zinc-650 font-light mt-4 text-xs md:text-sm leading-relaxed">
+          Todos os pacotes contam com as 5 fases estratégicas do Método CICLO. Escolha o nível de produção ideal para a realidade do seu negócio.
+        </p>
+      </div>
+
+      <!-- Pricing Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Plano 1: CICLO Essencial -->
+        <div class="p-2 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2rem] shadow-sm hover:border-zinc-300 transition-all duration-500 flex flex-col justify-between relative bg-white">
+          <div class="p-6 md:p-8 flex-grow">
+            <span class="text-[10px] font-mono tracking-widest text-zinc-550 uppercase">Essencial</span>
+            <h3 class="font-serif text-2xl font-normal text-zinc-900 mt-2">CICLO Essencial</h3>
+            <p class="text-zinc-550 text-xs font-light leading-relaxed mt-2">
+              Ideal para quem publica sozinho mas precisa de estratégia, planejamento e design profissional pronto.
+            </p>
+            
+            <!-- Price -->
+            <div class="my-6">
+              <span class="text-sm font-semibold text-zinc-500">R$</span>
+              <span class="text-4xl font-extrabold text-zinc-900">1.200</span>
+              <span class="text-xs text-zinc-500 font-light">/ taxa única</span>
+            </div>
+
+            <!-- Features -->
+            <ul class="space-y-3.5 border-t border-zinc-200/85 pt-6 text-xs text-zinc-650">
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                Reunião de briefing (Fase Contexto + Intenção)
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                Plano estratégico com calendário completo
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                8 artes para feed (estáticos ou carrossel)
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                Roteiros de Stories para as 4 semanas
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                Copies de legenda persuasivas com CTA
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                Orientações semanais de publicação
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                Relatório de encerramento com recomendação
+              </li>
+            </ul>
+          </div>
+          <div class="p-6">
+            <a href="#contato" onclick="selectPackage('CICLO Essencial')" class="w-full justify-center group relative inline-flex items-center gap-3 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-zinc-800 bg-zinc-150 rounded-full transition-all duration-300 hover:bg-zinc-200 active:scale-[0.98]">
+              Selecionar Plano
+              <i class="ph-light ph-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Plano 2: CICLO Completo (Popular) -->
+        <div class="p-2 bg-gradient-to-br from-orange-500/10 to-amber-500/10 border-2 border-orange-500 rounded-[2rem] shadow-md hover:shadow-lg transition-all duration-500 flex flex-col justify-between relative bg-white scale-100 lg:scale-[1.03]">
+          
+          <!-- Badge -->
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-orange-600 text-white text-[9px] font-mono font-bold tracking-widest uppercase px-4 py-1.5 rounded-full shadow-md">
+            Mais Recomendado
+          </div>
+
+          <div class="p-6 md:p-8 flex-grow">
+            <span class="text-[10px] font-mono tracking-widest text-orange-650 uppercase font-semibold">Completo</span>
+            <h3 class="font-serif text-2xl font-normal text-zinc-900 mt-2">CICLO Completo</h3>
+            <p class="text-zinc-550 text-xs font-light leading-relaxed mt-2">
+              Para quem quer entregar tudo na mão de uma especialista — do planejamento inicial à publicação final.
+            </p>
+            
+            <!-- Price -->
+            <div class="my-6">
+              <span class="text-sm font-semibold text-zinc-500">R$</span>
+              <span class="text-4xl font-extrabold text-zinc-900">2.100</span>
+              <span class="text-xs text-zinc-500 font-light">/ taxa única</span>
+            </div>
+
+            <!-- Features -->
+            <ul class="space-y-3.5 border-t border-zinc-200/85 pt-6 text-xs text-zinc-650">
+              <li class="flex items-center gap-2.5 font-medium text-zinc-850">
+                <i class="ph-bold ph-plus text-orange-650"></i>
+                Tudo do plano Essencial
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                12 artes para feed (estáticos ou carrosséis)
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                Produção e agendamento das publicações
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                2 Reels simples (edições com animação ou banco de mídia)
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                Monitoramento semanal de engajamento
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                Suporte prioritário via WhatsApp no período
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                Relatório completo com análise e recomendações
+              </li>
+            </ul>
+          </div>
+          <div class="p-6">
+            <a href="#contato" onclick="selectPackage('CICLO Completo')" class="w-full justify-center group relative inline-flex items-center gap-3 px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-white bg-zinc-900 rounded-full transition-all duration-300 hover:bg-zinc-800 active:scale-[0.98]">
+              Selecionar Plano
+              <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
+                <i class="ph-light ph-arrow-up-right text-xs"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Plano 3: CICLO + Reels -->
+        <div class="p-2 bg-[#F5F5F5] border border-zinc-200/80 rounded-[2rem] shadow-sm hover:border-zinc-300 transition-all duration-500 flex flex-col justify-between relative bg-white">
+          <div class="p-6 md:p-8 flex-grow">
+            <span class="text-[10px] font-mono tracking-widest text-zinc-550 uppercase">Premium</span>
+            <h3 class="font-serif text-2xl font-normal text-zinc-900 mt-2">CICLO + Reels</h3>
+            <p class="text-zinc-550 text-xs font-light leading-relaxed mt-2">
+              Máximo alcance orgânico e autoridade: inclui captação e edição profissional de vídeos presenciais.
+            </p>
+            
+            <!-- Price -->
+            <div class="my-6">
+              <span class="text-sm font-semibold text-zinc-500">R$</span>
+              <span class="text-4xl font-extrabold text-zinc-900">3.000</span>
+              <span class="text-xs text-zinc-500 font-light">/ taxa única</span>
+            </div>
+
+            <!-- Features -->
+            <ul class="space-y-3.5 border-t border-zinc-200/85 pt-6 text-xs text-zinc-650">
+              <li class="flex items-center gap-2.5 font-medium text-zinc-850">
+                <i class="ph-bold ph-plus text-orange-650"></i>
+                Tudo do plano Completo
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                14 artes para feed e vídeo layouts
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                4 Reels com captação profissional presencial (em Franca/SP)
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                Roteiros detalhados cena a cena para os Reels
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                Legenda e CTAs estrategicamente validados
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                Mapeamento profissional de hashtags
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="ph-bold ph-check text-orange-650"></i>
+                Reunião de encerramento para alinhamento futuro
+              </li>
+            </ul>
+          </div>
+          <div class="p-6">
+            <a href="#contato" onclick="selectPackage('CICLO + Reels')" class="w-full justify-center group relative inline-flex items-center gap-3 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-zinc-800 bg-zinc-150 rounded-full transition-all duration-300 hover:bg-zinc-200 active:scale-[0.98]">
+              Selecionar Plano
+              <i class="ph-light ph-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- How It Works Section (Como Funciona na Prática) -->
+  <section class="py-28 px-4 relative border-t border-zinc-200/60 bg-white reveal-section">
+    <div class="w-full max-w-6xl mx-auto">
+      
+      <!-- Section Title -->
+      <div class="mb-16 text-center max-w-xl mx-auto">
+        <span class="text-[10px] font-mono tracking-widest text-orange-650 uppercase font-semibold">Transparência em Cada Etapa</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-normal tracking-normal text-zinc-900 leading-[1.2] mt-3">
+          Como Funciona na Prática?
+        </h2>
+      </div>
+
+      <!-- Steps Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Step 1 -->
+        <div class="p-6 bg-[#F5F5F5] border border-zinc-200/80 rounded-2xl transition-all duration-300 hover:border-zinc-300">
+          <span class="text-3xl font-serif font-black text-orange-650/40">01</span>
+          <h4 class="font-serif text-lg font-normal text-zinc-900 mt-2">Primeiro contato</h4>
+          <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mt-2">
+            Você me conta o mês que quer trabalhar e o que pretende vender (através do formulário).
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="p-6 bg-[#F5F5F5] border border-zinc-200/80 rounded-2xl transition-all duration-300 hover:border-zinc-300">
+          <span class="text-3xl font-serif font-black text-orange-650/40">02</span>
+          <h4 class="font-serif text-lg font-normal text-zinc-900 mt-2">Reunião de briefing</h4>
+          <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mt-2">
+            Em 30 a 45 minutos, mapeamos tudo: contexto, meta, oferta e público-alvo.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="p-6 bg-[#F5F5F5] border border-zinc-200/80 rounded-2xl transition-all duration-300 hover:border-zinc-300">
+          <span class="text-3xl font-serif font-black text-orange-650/40">03</span>
+          <h4 class="font-serif text-lg font-normal text-zinc-900 mt-2">Envio da proposta</h4>
+          <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mt-2">
+            Com o briefing em mãos, envio o plano personalizado de campanha para aprovação.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="p-6 bg-[#F5F5F5] border border-zinc-200/80 rounded-2xl transition-all duration-300 hover:border-zinc-300">
+          <span class="text-3xl font-serif font-black text-orange-650/40">04</span>
+          <h4 class="font-serif text-lg font-normal text-zinc-900 mt-2">Produção</h4>
+          <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mt-2">
+            Com a aprovação do plano, dou início à produção de todos os conteúdos e criativos da campanha.
+          </p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="p-6 bg-[#F5F5F5] border border-zinc-200/80 rounded-2xl transition-all duration-300 hover:border-zinc-300">
+          <span class="text-3xl font-serif font-black text-orange-650/40">05</span>
+          <h4 class="font-serif text-lg font-normal text-zinc-900 mt-2">Entrega e execução</h4>
+          <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mt-2">
+            Você recebe todo o material organizado e a campanha vai ao ar seguindo o calendário pré-definido.
+          </p>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="p-6 bg-[#F5F5F5] border border-zinc-200/80 rounded-2xl transition-all duration-300 hover:border-zinc-300">
+          <span class="text-3xl font-serif font-black text-orange-650/40">06</span>
+          <h4 class="font-serif text-lg font-normal text-zinc-900 mt-2">Relatório final</h4>
+          <p class="text-zinc-650 text-xs md:text-sm font-light leading-relaxed mt-2">
+            Ao término do mês, entrego o Relatório CICLO detalhado com a análise de resultados e os aprendizados.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section (Formulário) -->
+  <section id="contato" class="py-28 px-4 relative bg-[#FAFAFA] reveal-section">
+    <div class="w-full max-w-3xl mx-auto text-center relative z-10">
+      
+      <!-- Section Header -->
+      <div class="mb-12">
+        <span class="text-[10px] font-mono tracking-widest text-orange-650 uppercase font-semibold">Vamos Começar?</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-normal tracking-normal text-zinc-900 leading-[1.2] mt-3">
+          Pronto para Iniciar o seu Ciclo?
+        </h2>
+        <p class="text-zinc-650 font-light mt-4 text-xs md:text-sm leading-relaxed max-w-[45ch] mx-auto">
+          Preencha o formulário abaixo. Carla entrará em contato para agendar o briefing e analisar suas redes.
+        </p>
+      </div>
+
+      <!-- Contact Form -->
+      <form id="contact-form" class="text-left space-y-6 bg-[#F5F5F5] border border-zinc-200/80 p-8 md:p-12 rounded-[2.5rem] shadow-lg relative">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Name Input -->
+          <div class="flex flex-col gap-2">
+            <label for="name" class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Nome Completo</label>
+            <input type="text" id="name" required class="w-full bg-zinc-100/65 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors text-zinc-900 placeholder-zinc-450 focus:bg-zinc-50" placeholder="Ex: Maria Eduarda">
+          </div>
+
+          <!-- Brand Instagram -->
+          <div class="flex flex-col gap-2">
+            <label for="instagram" class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Instagram ou Clínica</label>
+            <input type="text" id="instagram" required class="w-full bg-zinc-100/65 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors text-zinc-900 placeholder-zinc-450 focus:bg-zinc-50" placeholder="Ex: @clinicaestetica">
+          </div>
+        </div>
+
+        <!-- Service Type Selection -->
+        <div class="flex flex-col gap-2">
+          <label for="service" class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Qual pacote do Método CICLO tem interesse?</label>
+          <select id="service" class="w-full bg-zinc-100 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors text-zinc-900">
+            <option value="CICLO Essencial" class="bg-[#F5F5F5] text-zinc-900">CICLO Essencial (R$ 1.200)</option>
+            <option value="CICLO Completo" class="bg-[#F5F5F5] text-zinc-900">CICLO Completo (R$ 2.100)</option>
+            <option value="CICLO + Reels" class="bg-[#F5F5F5] text-zinc-900">CICLO + Reels (R$ 3.000)</option>
+          </select>
+        </div>
+
+        <!-- Message Input -->
+        <div class="flex flex-col gap-2">
+          <label for="message" class="text-[10px] font-mono tracking-widest text-zinc-600 uppercase">Detalhes do seu objetivo para o mês da campanha</label>
+          <textarea id="message" required rows="4" class="w-full bg-zinc-100/65 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors text-zinc-900 placeholder-zinc-450 focus:bg-zinc-50 resize-none" placeholder="Qual procedimento ou pacote deseja vender? Qual o mês estratégico pretendido?"></textarea>
+        </div>
+
+        <!-- Button CTA -->
+        <div class="pt-4 flex justify-center">
+          <button type="submit" id="submit-btn" class="w-full md:w-auto group relative inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-semibold uppercase tracking-wider text-white bg-zinc-900 rounded-full transition-all duration-500 hover:bg-zinc-800 active:scale-[0.98] cursor-pointer">
+            Solicitar Briefing
+            <span class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
+              <i class="ph-light ph-arrow-up-right text-xs"></i>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Success Toast Modal -->
+  <div id="toast-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center px-4 bg-[#FAFAFA]/80 backdrop-blur-md">
+    <div class="p-1.5 bg-black/[0.02] border border-zinc-200/80 rounded-[2.5rem] w-full max-w-[400px]">
+      <div class="bg-[#F5F5F5] rounded-[calc(2.5rem-0.375rem)] p-8 text-center shadow-2xl relative">
+        <span class="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center border border-orange-500/25 mx-auto mb-6">
+          <i class="ph-light ph-check text-orange-600 text-2xl"></i>
+        </span>
+        <h3 class="font-serif text-xl font-normal text-zinc-900 tracking-normal leading-tight">Pedido de Briefing Enviado!</h3>
+        <p class="text-zinc-650 font-light text-xs md:text-sm mt-3 leading-relaxed">
+          Obrigado pelo interesse. Você será redirecionado para o WhatsApp de Carla Mota para agendar a reunião do Método CICLO.
+        </p>
+        <button id="close-toast" class="mt-8 px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-zinc-900 rounded-full hover:bg-zinc-800 transition-colors">
+          Entendido
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-200/80 bg-[#FAFAFA] py-12 px-4 relative">
+    <div class="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand & Description -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left">
+        <span class="font-serif text-lg font-normal tracking-[0.05em] text-zinc-900 flex items-center gap-1.5 justify-center md:justify-start">
+          CARLA MOTA<span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+        </span>
+        <p class="text-zinc-500 text-[10px] mt-1 tracking-wider uppercase">UGC Creator · Produção de Conteúdo · Filmmaker Local</p>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="text-[10px] text-zinc-500 font-light tracking-wide">
+        &copy; 2026 Carla Mota. Todos os direitos reservados.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts: Animations & Logic -->
+  <script>
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Initial Load Animations (Hero)
+    window.addEventListener('DOMContentLoaded', () => {
+      const tl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.2 } });
+      
+      tl.from('.hero-badge', { opacity: 0, y: 15, delay: 0.1 })
+        .from('.hero-title-line', { opacity: 0, y: 50, stagger: 0.12 }, '-=0.8')
+        .from('.hero-sub', { opacity: 0, y: 20 }, '-=0.8')
+        .from('.hero-cta', { opacity: 0, scale: 0.96 }, '-=0.8')
+        .from('.hero-image-wrap', { opacity: 0, scale: 0.98, y: 30 }, '-=1');
+
+    });
+
+    // Scroll Reveal on Sections
+    gsap.utils.toArray('.reveal-section').forEach((sec) => {
+      gsap.from(sec, {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sec,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        }
+      });
+    });
+
+    // Timeline progress line animation
+    gsap.to('#timeline-progress-line', {
+      height: '100%',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#timeline-container',
+        start: 'top 30%',
+        end: 'bottom 70%',
+        scrub: true
+      }
+    });
+
+    // Timeline dots activation
+    gsap.utils.toArray('.timeline-dot').forEach((dot) => {
+      ScrollTrigger.create({
+        trigger: dot,
+        start: 'top 40%',
+        onToggle: (self) => {
+          if (self.isActive) {
+            dot.classList.add('bg-orange-600', 'border-orange-600', 'shadow-[0_0_10px_rgba(234,88,12,0.4)]');
+            dot.classList.remove('bg-zinc-200', 'border-white');
+          } else {
+            if (self.progress === 0) {
+              dot.classList.remove('bg-orange-600', 'border-orange-600', 'shadow-[0_0_10px_rgba(234,88,12,0.4)]');
+              dot.classList.add('bg-zinc-200', 'border-white');
+            }
+          }
+        }
+      });
+    });
+
+    // Timeline steps scroll reveal animation
+    gsap.utils.toArray('.timeline-step').forEach((step) => {
+      const leftIndicator = step.querySelector('.lg:sticky');
+      const rightCard = step.querySelector('.lg:col-span-9');
+      
+      if (leftIndicator && rightCard) {
+        gsap.from(leftIndicator, {
+          opacity: 0,
+          x: -30,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: step,
+            start: 'top 85%'
+          }
+        });
+
+        gsap.from(rightCard, {
+          opacity: 0,
+          x: 40,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: step,
+            start: 'top 85%'
+          }
+        });
+      }
+    });
+
+    // Week cards reveal
+    gsap.utils.toArray('.week-card').forEach((card) => {
+      gsap.from(card, {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 92%',
+          toggleActions: 'play none none none',
+        }
+      });
+    });
+
+    // Toggle Package selection from CTA cards
+    function selectPackage(packageName) {
+      const selectElem = document.getElementById('service');
+      selectElem.value = packageName;
+      // Triggers focus on form
+      document.getElementById('name').focus();
+    }
+
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const spans = menuBtn.querySelectorAll('span');
+        mobileMenu.classList.toggle('hidden');
+        document.body.classList.toggle('overflow-hidden');
+        
+        if (!mobileMenu.classList.contains('hidden')) {
+          spans[0].classList.add('rotate-45', 'translate-y-[5px]');
+          spans[1].classList.add('opacity-0');
+          spans[2].classList.add('-rotate-45', '-translate-y-[5px]');
+          
+          gsap.fromTo('.mobile-link', 
+            { opacity: 0, y: 20 }, 
+            { opacity: 1, y: 0, stagger: 0.08, ease: 'power3.out', duration: 0.5 }
+          );
+        } else {
+          spans[0].classList.remove('rotate-45', 'translate-y-[5px]');
+          spans[1].classList.remove('opacity-0');
+          spans[2].classList.remove('-rotate-45', '-translate-y-[5px]');
+        }
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+          const spans = menuBtn.querySelectorAll('span');
+          spans[0].classList.remove('rotate-45', 'translate-y-[5px]');
+          spans[1].classList.remove('opacity-0');
+          spans[2].classList.remove('-rotate-45', '-translate-y-[5px]');
+        });
+      });
+    }
+
+    // Form submission & WhatsApp Redirect Logic
+    const contactForm = document.getElementById('contact-form');
+    const toastModal = document.getElementById('toast-modal');
+    const closeToast = document.getElementById('close-toast');
+    const submitBtn = document.getElementById('submit-btn');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Submit loading simulation
+      gsap.to(submitBtn, { scale: 0.95, duration: 0.2, yoyo: true, repeat: 1 });
+      submitBtn.classList.add('opacity-80');
+      submitBtn.innerHTML = 'Enviando...';
+
+      setTimeout(() => {
+        // Show success modal
+        toastModal.classList.remove('hidden');
+        
+        // Reset submit button state
+        submitBtn.classList.remove('opacity-80');
+        submitBtn.innerHTML = 'Solicitar Briefing <span class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center"><i class="ph-light ph-arrow-up-right text-xs"></i></span>';
+        
+        // Get Form Values
+        const name = document.getElementById('name').value;
+        const instagram = document.getElementById('instagram').value;
+        const service = document.getElementById('service').value;
+        const message = document.getElementById('message').value;
+        
+        // Build Custom WhatsApp Message
+        const baseMsg = `Olá Carla! Meu nome é ${name} (${instagram}). Gostaria de conversar sobre o pacote "${service}" do Método CICLO. Seguem os detalhes: ${message}`;
+        const whatsappUrl = `https://wa.me/5599999999999?text=${encodeURIComponent(baseMsg)}`; // Placeholder number, same as index.html
+        
+        closeToast.onclick = () => {
+          toastModal.classList.add('hidden');
+          window.open(whatsappUrl, '_blank');
+          contactForm.reset();
+        };
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
