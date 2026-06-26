@@ -131,6 +131,11 @@
 
     <!-- Mobile Fullscreen Overlay -->
     <div id="mobile-menu" class="fixed inset-0 z-40 hidden flex-col items-center justify-start pt-32 pb-12 overflow-y-auto bg-[#FAFAFA]/98 backdrop-blur-3xl">
+      <!-- Close Button (X) inside the overlay -->
+      <button id="close-menu-btn" class="fixed top-6 right-6 w-12 h-12 rounded-full bg-white/90 border border-zinc-200/80 text-zinc-600 hover:text-zinc-950 flex items-center justify-center cursor-pointer hover:bg-zinc-100 transition-all duration-300 active:scale-95 z-50" aria-label="Fechar Menu">
+        <i class="ph-light ph-x text-xl"></i>
+      </button>
+
       <nav class="flex flex-col items-center gap-8 text-center">
         <a href="index.html" class="mobile-link text-2xl font-display font-bold text-zinc-800 hover:text-black transition-colors">Home</a>
         <a href="#o-metodo" class="mobile-link text-2xl font-display font-bold text-zinc-800 hover:text-black transition-colors">O Método</a>
@@ -1044,6 +1049,7 @@
     if (menuBtn && mobileMenu) {
       const spans = menuBtn.querySelectorAll('.hamburger-lines span');
       const menuText = menuBtn.querySelector('span');
+      const closeMenuBtn = document.getElementById('close-menu-btn');
 
       menuBtn.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
@@ -1058,8 +1064,8 @@
           }
           
           gsap.fromTo('.mobile-link', 
-            { opacity: 0, y: 15 }, 
-            { opacity: 1, y: 0, stagger: 0.08, ease: 'power3.out', duration: 0.4 }
+             { opacity: 0, y: 15 }, 
+             { opacity: 1, y: 0, stagger: 0.08, ease: 'power3.out', duration: 0.4 }
           );
         } else {
           if (menuText) menuText.innerText = 'Menu';
@@ -1084,6 +1090,20 @@
           }
         }
       });
+
+      // Close menu by clicking on the X button inside overlay
+      if (closeMenuBtn) {
+        closeMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+          if (menuText) menuText.innerText = 'Menu';
+          if (spans.length >= 3) {
+            spans[0].classList.remove('rotate-45', 'translate-y-[3.5px]');
+            spans[1].classList.remove('opacity-0');
+            spans[2].classList.remove('-rotate-45', '-translate-y-[3.5px]');
+          }
+        });
+      }
 
       mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
